@@ -11,15 +11,13 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void    ft_creat(int ac, char **av, t_list **stack_a)
+void    ft_creat_stack(int ac, char **av, t_list **stack_a)
 {
     int     i;
     int     num;
     t_list  *new;
 
     i = 0;
-    if (!stack_a || !(*stack_a) || !(*stack_a)->next)
-		return ;
     while (++i < ac)
     {
         num = ft_atoi(av[i]);
@@ -37,11 +35,15 @@ int main(int ac, char **av)
         return 0;
     stack_a = NULL;
     stack_b = NULL;
-    ft_creat(ac, av, &stack_a);
-    //r(&stack_a, 'a');
-    pa(&stack_a,&stack_b);
-    printf("-------------------\n");
+    ft_creat_stack(ac, av, &stack_a);
+    if (stack_a <= 10)
+    {
+
+    }
+    r(&stack_a, 'a');
+    //p(&stack_a,&stack_b, 'a');
     //s(&stack_a, 'a');
+    printf("-------------------\n");
     while (stack_a)
     {
         printf("%d\n", stack_a->num);

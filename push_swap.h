@@ -34,6 +34,6 @@ void    ft_lstadd_front(t_list **lst, t_list *new);
 void    ft_lstadd_back(t_list **lst, t_list *new);
 void	s(t_list **lst, char s);
 void	r(t_list **lst, char s);
-void	pa(t_list **stack_a, t_list **stack_b);
+void	p(t_list **stack_a, t_list **stack_b, char s);
 
 #endif

@@ -50,15 +50,18 @@ void	r(t_list **lst, char s)
 		write(1, "rb\n", 3);
 }
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	p(t_list **stack_a, t_list **stack_b, char s)
 {
-	t_list	tmp;
+	t_list	*tmp;
 
-	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
+	if (!(*stack_b))
 		return ;
 	tmp = *stack_b;
 	*stack_b = (*stack_b)->next;
 	tmp->next = NULL;
-	ft_lstadd_front(stack_a, &tmp);
-	write (1, "pa\n", 3);
+	ft_lstadd_front(stack_a, tmp);
+	if (s == 'a')
+		write(1, "pa\n", 3);
+	else if (s == 'b')
+		write(1, "pb\n", 3);
 }
