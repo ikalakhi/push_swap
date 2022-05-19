@@ -25,11 +25,11 @@ int	ft_avlenth(char **av)
 
 void    ft_erreur(void)
 {
-    write(1, "erreur\n", 7);
+    write(2, "erreur\n", 7);
     exit (1);
 }
 
- int	stack_size(t_list *list)
+int	stack_size(t_list *list)
 {
 	int	count;
 
@@ -55,4 +55,46 @@ void	ft_putstr(char *s)
 			i++;
 		}
 	}
+}
+
+int     *sort(int *arr, int size)
+{
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	j = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (arr[i] > arr[j])
+			{
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+			++j;
+		}
+		++i;
+	}
+	return (arr);
+}
+
+int	*swap_to_arry(t_list **stack, int *s, int size)
+{
+	int	i;
+
+	i = 0;
+	s = malloc (sizeof(int) * size);
+	while((*stack)->next)
+	{
+		s[i] = (*stack)->num;
+		(*stack) = (*stack)->next;
+		i++;
+	}
+	sort(s, size);
+	return (s);
 }

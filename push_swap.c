@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void    ft_creat_stack(int ac, char **av, t_list **stack_a)
+int ft_creat_stack(int ac, char **av, t_list **stack_a)
 {
     int     i;
     int     num;
@@ -24,30 +24,48 @@ void    ft_creat_stack(int ac, char **av, t_list **stack_a)
         new = ft_lstnew(num);
         ft_lstadd_back(stack_a, new);
     }
+    return (i);
 }
 
 int main(int ac, char **av)
 {
-    t_list  *stack_a;
-    t_list  *stack_b;
+    t_list  *stack_a = NULL;
+    t_list  *stack_b = NULL;
+    int     i;
+    int     *s;
 
-    if (ac < 2)
+    s = NULL;
+    i = check_numbers(av, ac);
+    //printf("%d\n", i);
+    // write(1, "imo\n", 4);
+    if (ac < 2 || i == 0)
         return 0;
-    stack_a = NULL;
-    stack_b = NULL;
-    ft_creat_stack(ac, av, &stack_a);
-    if (stack_a <= 10)
+    if (i == 1)
     {
+        //ft_intialize(&stack_a, &stack_b);
+        ft_creat_stack(ac, av, &stack_a);
+        // while(stack_a)
+        // {
+        //     printf("data is : %d\n", stack_a->num);
+        //     stack_a = stack_a->next;
+        //}
+        if (ac == 3)
+            sort_stack_2(&stack_a);
+        else if (ac == 4)
+            sort_stack_3(&stack_a);
+        else if (ac == 5)
+        {
+            //ft_creat_stack(ac, av, &stack_b);
+            sort_stack_4(&stack_a, &stack_b, s);
+        }
+        // else
+        //     sort_big_stack(stack_a);
 
-    }
-    r(&stack_a, 'a');
-    //p(&stack_a,&stack_b, 'a');
-    //s(&stack_a, 'a');
-    printf("-------------------\n");
-    while (stack_a)
-    {
-        printf("%d\n", stack_a->num);
-        stack_a = stack_a->next;
+        while (ac-- > 1)
+        {
+            printf("%d ", stack_a->num);
+            stack_a = stack_a->next;
+        }
     }
     return 0;
 }

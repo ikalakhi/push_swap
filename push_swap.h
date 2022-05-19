@@ -14,26 +14,39 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-#include <stdio.h>
+# include <stdio.h>
 
-typedef struct list
+typedef struct node
 {
-    int num;
-    struct list *next;
+    int         index;
+    int         num;
+    struct node *next;
 } t_list;
 
 t_list  *ft_lstnew(int number);
 t_list	*ft_lstlast(t_list *lst);
-int     *sort_small_stack(int *a);
-int     *sort_big_stack(int *b);
 int     ft_atoi(char *str);
 int	    ft_avlenth(char **av);
+int     check_numbers(char **av, int ac);
+int     *sort(int *s, int size);
 int	    stack_size(t_list *list);
-void    ft_erreur(void);
-void    ft_lstadd_front(t_list **lst, t_list *new);
+int     min_stack(t_list **stack);
+int     *swap_to_arry(t_list **stack, int *s, int size);
+int     ft_creat_stack(int ac, char **av, t_list **stack_a);
+void    sort_stack_2(t_list **stack);
+void    sort_stack_3(t_list **stack);
+void    sort_big_stack(t_list **stack);
+void    put_index(t_list **stack, int *s);
+void    sort_stack_5(t_list **stack, int ac);
 void    ft_lstadd_back(t_list **lst, t_list *new);
+void    ft_lstadd_front(t_list **lst, t_list *new);
+void    sort_stack_4(t_list **stack, t_list **stack_b, int *s);
+void    ft_erreur(void);
+void	rr(t_list **lst);
 void	s(t_list **lst, char s);
 void	r(t_list **lst, char s);
+void	rra_rrb(t_list **lst, char s);
 void	p(t_list **stack_a, t_list **stack_b, char s);
+void    ft_intialize(t_list **stack_a, t_list **stack_b);
 
 #endif

@@ -10,18 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a 
+NAME = push_swap
 
-SRC = push_swap.c rules.c push_swap_utils.c external_functions.c
+SRC = push_swap.c rules.c push_swap_utils.c external_functions.c sortme.c \
+		external_utils.c
 
 OBJS = $(SRC:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-$(NAME):
-	cc $(CFLAGS) -c $(SRC)
-	ar -rcs $(NAME) $(OBJS)
+$(NAME): $(SRC)
+	cc $(CFLAGS) $(SRC) -o $(NAME)
+	
 clean:
 	rm -rf $(OBJS)
 
