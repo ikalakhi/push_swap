@@ -38,27 +38,30 @@ int check_numbers(char **av, int ac)
 void    put_index(t_list **stack, int *s)
 {
     int i;
+    t_list *tmp;
 
+    tmp = (*stack);
     i = 0;
-    while (s && (*stack)->next)
+    while (s && tmp)
     {
-        if (s[i] == (*stack)->num)
-            (*stack)->index = i;
+        tmp->index = i;
         i++;
-        (*stack) = (*stack)->next;
+        tmp = tmp->next;
     }
 }
 
 int min_stack(t_list **stack)   
 {
     int i;
+    t_list *tmp;
     
-    i = (*stack)->num;
-    while ((*stack))
+    tmp = (*stack);
+    i = tmp->num;
+    while (tmp)
     {
-        if (i > (*stack)->num)
-            i = (*stack)->num;
-        (*stack) = (*stack)->next;
+        if (i > tmp->num)
+            i = tmp->num;
+        tmp = tmp->next;
     }
     return (i);
 }
@@ -67,4 +70,16 @@ void    ft_intialize(t_list **stack_a, t_list **stack_b)
 {
     stack_a = NULL;
     stack_b = NULL;
+}
+
+void    print_stack(t_list **stack)
+{
+    t_list *tmp;
+    tmp = (*stack);
+
+    while(tmp)
+    {
+        printf("data is :%d\n", tmp->num);
+        tmp = tmp->next;
+    }
 }

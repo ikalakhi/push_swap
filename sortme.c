@@ -21,17 +21,14 @@ void    sort_stack_2(t_list **stack)
 
 void    sort_stack_3(t_list **stack)
 {
-        //int i = 0;
-        // while ((*stack))
-        // {
-        //     printf("%d", (*stack)->num);
-        //     (*stack) = (*stack)->next;
-        // }
-    // if(!(*stack) && (*stack)->next)
-    //     {
-    //         printf("Error\n");
-    //         exit(1);
-    //     }
+    // t_list *tmp;
+    // tmp = (*stack);
+
+    // while(tmp)
+    // {
+    //     printf("data is :%d\n", tmp->num);
+    //     tmp = tmp->next;
+    // }
     if ((*stack)->num < (*stack)->next->num && (*stack)->next->num > (*stack)->next->next->num \
         && (*stack)->num < (*stack)->next->next->num)
     {
@@ -60,23 +57,19 @@ void    sort_stack_4(t_list **stack_a, t_list **stack_b, int *s)
     int i;
     int mid;
     int size;
+    //int index;
 
-    // while ((*stack_a))
-    // {
-    //         printf("%d", (*stack_a)->num);
-    //         (*stack_a) = (*stack_a)->next;
-    // }
     i = 0;
     size = stack_size((*stack_a));
     mid = stack_size((*stack_a)) / 2;
-    swap_to_arry(stack_a, s, size);
+    s = swap_to_arry(stack_a, s, size);
     put_index(stack_a, s);
-    min_stack(stack_a);
-            //int i = 0;
-    p(stack_a, stack_b, 'b');
-    write(1,"imo\n",4);
+    i = min_stack(stack_a);
+    printf("min is = %d\n", i);
+    ft_pb(stack_a, stack_b, 'b');
     sort_stack_3(stack_a);
-    p(stack_b, stack_a, 'a');
+    ft_pa(stack_a, stack_b, 'a');
+    print_stack(stack_a);
     free (s);
 }
 

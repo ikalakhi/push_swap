@@ -56,16 +56,11 @@ int main(int ac, char **av)
         else if (ac == 5)
         {
             //ft_creat_stack(ac, av, &stack_b);
+
             sort_stack_4(&stack_a, &stack_b, s);
         }
         // else
-        //     sort_big_stack(stack_a);
-
-        while (ac-- > 1)
-        {
-            printf("%d ", stack_a->num);
-            stack_a = stack_a->next;
-        }
+        //     sort_big_stack(stack_a)
     }
     return 0;
 }

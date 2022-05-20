@@ -73,26 +73,57 @@ void	rr(t_list **lst)
 	
 // }
 
-void	p(t_list **stack_a, t_list **stack_b, char s)
+// void	p(t_list **stack_a, t_list **stack_b, char s)
+// {
+// 	t_list	*tmp;
+// 	t_list	*tmp2;
+
+// 	// if (!(*stack_b) || !(*stack_a))
+// 	// 	return ;
+// 	tmp = (*stack_b);
+// 	tmp2 = (*stack_a);
+// 	if (s == 'a')
+// 	{
+// 		tmp = *stack_a;
+// 		*stack_a = (*stack_a)->next;
+// 		tmp->next = NULL;
+// 		ft_lstadd_front(stack_a, tmp);
+// 		write(1, "pa\n", 3);
+// 	}
+// 	else if(s == 'b')
+// 	{
+// 		tmp2 = *stack_b;
+// 		*stack_b = (*stack_b)->next;
+// 		tmp2->next = NULL;
+// 		ft_lstadd_front(stack_b, tmp2);
+// 		write(1, "pb\n", 3);
+// 	}
+// }
+
+void	ft_pa(t_list **stack_a, t_list **stack_b, char a)
 {
 	t_list	*tmp;
 
-	if (!(*stack_b) || !(*stack_a))
+	if (!(*stack_b))
 		return ;
-	tmp = (*stack_b);
-	t_list	*tmp2 = (*stack_a);
-	if (s == 'a')
-	{
-		*stack_b = (*stack_b)->next;
-		tmp->next = NULL;
-		ft_lstadd_front(stack_a, tmp);
+	tmp = *stack_b;
+	*stack_b = (*stack_b)->next;
+	tmp->next = NULL;
+	ft_lstadd_front(stack_a, tmp);
+	if (a == 'a')
 		write(1, "pa\n", 3);
-	}
-	else if(s == 'b')
-	{
-		*stack_a = (*stack_a)->next;
-		tmp2->next = NULL;
-		ft_lstadd_front(stack_b, tmp2);
+}
+
+void	ft_pb(t_list **stack_a, t_list **stack_b, char a)
+{
+	t_list	*tmp;
+
+	if (!(*stack_a))
+		return ;
+	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	tmp->next = NULL;
+	ft_lstadd_front(stack_b, tmp);
+	if (a == 'b')
 		write(1, "pb\n", 3);
-	}
 }

@@ -64,7 +64,6 @@ int     *sort(int *arr, int size)
 	int	temp;
 
 	i = 0;
-	j = 0;
 	while (i < size)
 	{
 		j = i + 1;
@@ -76,23 +75,25 @@ int     *sort(int *arr, int size)
 				arr[i] = arr[j];
 				arr[j] = temp;
 			}
-			++j;
+			j++;
 		}
-		++i;
+		i++;
 	}
 	return (arr);
 }
 
 int	*swap_to_arry(t_list **stack, int *s, int size)
 {
+	t_list	*temp;
 	int	i;
 
 	i = 0;
+	temp = (*stack);
 	s = malloc (sizeof(int) * size);
-	while((*stack)->next)
+	while(temp)
 	{
-		s[i] = (*stack)->num;
-		(*stack) = (*stack)->next;
+		s[i] = temp->num;
+		temp = temp->next;
 		i++;
 	}
 	sort(s, size);

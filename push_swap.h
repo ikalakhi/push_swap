@@ -46,7 +46,9 @@ void	rr(t_list **lst);
 void	s(t_list **lst, char s);
 void	r(t_list **lst, char s);
 void	rra_rrb(t_list **lst, char s);
-void	p(t_list **stack_a, t_list **stack_b, char s);
+void	ft_pa(t_list **stack_a, t_list **stack_b, char a);
+void	ft_pb(t_list **stack_a, t_list **stack_b, char a);
 void    ft_intialize(t_list **stack_a, t_list **stack_b);
+void    print_stack(t_list **stack);
 
 #endif
