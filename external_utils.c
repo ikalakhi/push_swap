@@ -24,7 +24,6 @@ int check_numbers(char **av, int ac)
         {
             if (av[i][j] < '0' || av[i][j] > '9')
             {
-                //printf("av[i][j] is : %c\n", av[i][j]);
                 return (0);
             }
             j++;
@@ -35,19 +34,35 @@ int check_numbers(char **av, int ac)
     return (1);
 }
 
-void    put_index(t_list **stack, int *s)
+int	find_index(int data, int *array, int size)
 {
-    int i;
-    t_list *tmp;
+	int	i;
 
-    tmp = (*stack);
-    i = 0;
-    while (s && tmp)
-    {
-        tmp->index = i;
-        i++;
-        tmp = tmp->next;
-    }
+	i = 0;
+	while (i < size)
+	{
+		if (array[i] == data)
+			return (i);
+		i++;
+	}
+	return (i);
+}
+
+void	put_index(t_list **stack, int size)
+{
+	int		i;
+	t_list	*p;
+	int		*s = NULL;
+
+	s = swap_to_arry(stack, s, size);
+	i = 0;
+	p = (*stack);
+	while (p)
+	{
+		p->index = find_index(p->num, s, size);
+		p = p->next;
+	}
+	free (s);
 }
 
 int min_stack(t_list **stack)   
@@ -79,7 +94,20 @@ void    print_stack(t_list **stack)
 
     while(tmp)
     {
-        printf("data is :%d\n", tmp->num);
+        printf("data is :%d\n", tmp->index);
         tmp = tmp->next;
     }
+}
+
+int    check_sorted(t_list *lst)
+{
+    if (lst == NULL)
+        return (0);
+    while (lst->next)
+    {
+        if (lst->num > lst->next->num)
+            return (0);
+        lst = lst->next;
+    }
+    return (1);
 }

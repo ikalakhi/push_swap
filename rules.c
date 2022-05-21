@@ -59,46 +59,21 @@ void	rr(t_list **lst)
 	write(1, "rr\n", 3);
 }
 
-// void	rra_rrb(t_list **lst, char s)
-// {
-// 	t_list	*t1;
-// 	t_list	*t2;
+void	rra_rrb(t_list **lst, char s)
+{
+	t_list	*t1;
+	t_list	*t2;
 
-// 	if (!lst || !(*lst) || !(*lst)->next)
-// 		return ;
-// 	t1 = *lst;
-// 	t2 = (*lst)->next;
-// 	while (t1->next)
-// 		t1 = t1->next;
-	
-// }
-
-// void	p(t_list **stack_a, t_list **stack_b, char s)
-// {
-// 	t_list	*tmp;
-// 	t_list	*tmp2;
-
-// 	// if (!(*stack_b) || !(*stack_a))
-// 	// 	return ;
-// 	tmp = (*stack_b);
-// 	tmp2 = (*stack_a);
-// 	if (s == 'a')
-// 	{
-// 		tmp = *stack_a;
-// 		*stack_a = (*stack_a)->next;
-// 		tmp->next = NULL;
-// 		ft_lstadd_front(stack_a, tmp);
-// 		write(1, "pa\n", 3);
-// 	}
-// 	else if(s == 'b')
-// 	{
-// 		tmp2 = *stack_b;
-// 		*stack_b = (*stack_b)->next;
-// 		tmp2->next = NULL;
-// 		ft_lstadd_front(stack_b, tmp2);
-// 		write(1, "pb\n", 3);
-// 	}
-// }
+	if (!lst || !(*lst) || !(*lst)->next)
+		return ;
+	t1 = *lst;
+	t2 = (*lst)->next;
+	while (t1->next)
+	{
+		t1 = t1->next;
+		
+	}
+}
 
 void	ft_pa(t_list **stack_a, t_list **stack_b, char a)
 {

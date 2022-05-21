@@ -32,18 +32,14 @@ int main(int ac, char **av)
     t_list  *stack_a = NULL;
     t_list  *stack_b = NULL;
     int     i;
-    int     *s;
-
-    s = NULL;
+    
+    ft_creat_stack(ac, av, &stack_a);
     i = check_numbers(av, ac);
-    //printf("%d\n", i);
-    // write(1, "imo\n", 4);
     if (ac < 2 || i == 0)
         return 0;
     if (i == 1)
     {
         //ft_intialize(&stack_a, &stack_b);
-        ft_creat_stack(ac, av, &stack_a);
         // while(stack_a)
         // {
         //     printf("data is : %d\n", stack_a->num);
@@ -57,10 +53,10 @@ int main(int ac, char **av)
         {
             //ft_creat_stack(ac, av, &stack_b);
 
-            sort_stack_4(&stack_a, &stack_b, s);
+            sort_stack_4(&stack_a, &stack_b);
         }
         // else
         //     sort_big_stack(stack_a)
     }
-    return 0;
+    //return 0;
 }
