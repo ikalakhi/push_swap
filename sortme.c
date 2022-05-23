@@ -47,30 +47,32 @@ void    sort_stack_3(t_list **stack)
 void    sort_stack_4(t_list **stack_a, t_list **stack_b)
 {
     int     i;
-    int     mid;
+    int     b;
     int     size;
 
     size = stack_size((*stack_a));
-    mid = size / 2;
     i = min_stack(stack_a);
-    print_stack(stack_a);
-    while(stack_a)
+    b = 1;
+    while(b)
     {
         if ((i * 2) >= size)
         {
-            rolling(stack_a);     
+            printf(" herr%d\n", i);
+            up_rolling(stack_a, i, size);
+            pb(stack_a, stack_b, 'b');    
         }
-        // else if (((*stack_a)->next * 2) < size)
-        // {
-
-        // }
-        (*stack_a) = (*stack_a)->next;
+        else if ((i * 2) < size)
+        {
+            down_rolling(stack_a, i);
+            pb(stack_a, stack_b, 'b');
+        }
+        b--;
     }
-    put_index(stack_a, size);
-    pb(stack_a, stack_b, 'b');
+    //put_index(stack_a, size);
     sort_stack_3(stack_a);
     pa(stack_a, stack_b, 'a');
-    printf("min is = %d\n", i);
+    print_stack(stack_a);
+    //printf("min is = %d\n", i);
 }
 
 //void sort_5_stack(t_list **stack)

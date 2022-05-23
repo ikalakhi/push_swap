@@ -55,28 +55,20 @@ int     *sort(int *arr, int size)
 	return (arr);
 }
 
-int	*swap_to_arry(t_list **stack, int *s, int size)
+void	up_rolling(t_list **stack, int i, int size)
 {
-	t_list	*temp;
-	int	i;
-
-	i = 0;
-	temp = (*stack);
-	s = malloc (sizeof(int) * size);
-	while (temp)
-	{
-		s[i] = temp->num;
-		temp = temp->next;
-		i++;
-	}
-	sort(s, size);
-	return (s);
-}
-
-void	rolling(t_list **stack)
-{
-	while ((*stack)->num < (*stack)->next->num)
+	while (i < size)
 	{
 		rra_rrb(stack, 'a');
+		i++;
+	}
+}
+
+void	down_rolling(t_list **stack, int i)
+{
+	while (i > 0)
+	{
+		r(stack, 'a');
+		i--;
 	}
 }

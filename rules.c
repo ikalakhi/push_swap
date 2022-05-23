@@ -78,17 +78,18 @@ void	rra_rrb(t_list **lst, char s)
 		write(1, "rrb\n", 4);
 }
 
-void	pa(t_list **stack_a, t_list **stack_b, char a)
+void	pa(t_list **stack_a, t_list **stack_b, char s)
 {
 	t_list	*tmp;
 
+	
 	if (!(*stack_b))
 		return ;
 	tmp = *stack_b;
 	*stack_b = (*stack_b)->next;
 	tmp->next = NULL;
 	ft_lstadd_front(stack_a, tmp);
-	if (a == 'a')
+	if (s == 'a')
 		write(1, "pa\n", 3);
 }
 

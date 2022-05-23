@@ -68,23 +68,26 @@ void	put_index(t_list **stack, int size)
 int min_stack(t_list **stack)   
 {
     int i;
+    int j;
+    int box;
     t_list *tmp;
     
     tmp = (*stack);
-    i = tmp->num;
+    // put_index(stack, size);
+    i = 0;
+    j = 0;
+    box = tmp->num;
     while (tmp)
     {
-        if (i > tmp->num)
-            i = tmp->num;
+        if ( box > tmp->num)
+        {
+            j = i;
+            box = tmp->num;
+        }
+        i++;
         tmp = tmp->next;
     }
-    return (i);
-}
-
-void    intialize(t_list **stack_a, t_list **stack_b)
-{
-    stack_a = NULL;
-    stack_b = NULL;
+    return (j);
 }
 
 int    check_sorted(t_list *lst)
@@ -98,6 +101,31 @@ int    check_sorted(t_list *lst)
         lst = lst->next;
     }
     return (1);
+}
+
+int	*swap_to_arry(t_list **stack, int *s, int size)
+{
+	t_list	*temp;
+	int	i;
+
+	i = 0;
+	temp = (*stack);
+	s = malloc (sizeof(int) * size);
+    if (!s)
+        return (0);
+	while (temp)
+	{
+		s[i] = temp->num;
+		temp = temp->next;
+		i++;
+	}
+	return (s);
+}
+
+void    intialize(t_list **stack_a, t_list **stack_b)
+{
+    stack_a = NULL;
+    stack_b = NULL;
 }
 
 void    print_stack(t_list **stack)

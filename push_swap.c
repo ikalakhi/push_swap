@@ -32,7 +32,7 @@ int main(int ac, char **av)
     t_list  *stack_a = NULL;
     t_list  *stack_b = NULL;
     int     i;
-    
+
     creat_stack(ac, av, &stack_a);
     i = check_numbers(av, ac);
     if (ac < 2 || i == 0)

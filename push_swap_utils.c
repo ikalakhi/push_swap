@@ -49,12 +49,23 @@ void    ft_lstadd_back(t_list **lst, t_list *new)
         *lst = new;
 }
 
+
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    if (!new || lst)
-        return ;
-    new->next = *lst;
-    *lst = new;
+    // if (!new || lst)
+    //     return ;
+    // new->next = *lst;
+    // *lst = new;
+
+	if (!new)
+		return ;
+	if (!lst)
+	{
+		*lst = new;
+		return ;
+	}
+	new->next = *lst;
+	*lst = new;
 }
 
 
