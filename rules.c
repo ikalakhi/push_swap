@@ -64,18 +64,21 @@ void	rra_rrb(t_list **lst, char s)
 	t_list	*t1;
 	t_list	*t2;
 
-	if (!lst || !(*lst) || !(*lst)->next)
+	if (!lst || !(*lst))
 		return ;
-	t1 = *lst;
-	t2 = (*lst)->next;
-	while (t1->next)
-	{
+	t1 = (*lst);
+	while (t1->next->next)
 		t1 = t1->next;
-		
-	}
+	t2 = t1->next;
+	t1->next = NULL;
+	ft_lstadd_front(lst, t2);
+	if (s == 'a')
+		write(1, "rra\n", 4);
+	else if (s == 'b')
+		write(1, "rrb\n", 4);
 }
 
-void	ft_pa(t_list **stack_a, t_list **stack_b, char a)
+void	pa(t_list **stack_a, t_list **stack_b, char a)
 {
 	t_list	*tmp;
 
@@ -89,7 +92,7 @@ void	ft_pa(t_list **stack_a, t_list **stack_b, char a)
 		write(1, "pa\n", 3);
 }
 
-void	ft_pb(t_list **stack_a, t_list **stack_b, char a)
+void	pb(t_list **stack_a, t_list **stack_b, char a)
 {
 	t_list	*tmp;
 

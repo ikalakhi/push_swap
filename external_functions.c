@@ -11,19 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	ft_avlenth(char **av)
-{
-	int	i;
-
-	i = 0;
-	while (av[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-void    ft_erreur(void)
+void    erreur(void)
 {
     write(2, "erreur\n", 7);
     exit (1);
@@ -40,21 +28,6 @@ int	stack_size(t_list *list)
 		list = list->next;
 	}
 	return (count);
-}
-
-void	ft_putstr(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i] != '\0')
-		{
-			write (1, &s[i], 1);
-			i++;
-		}
-	}
 }
 
 int     *sort(int *arr, int size)
@@ -90,7 +63,7 @@ int	*swap_to_arry(t_list **stack, int *s, int size)
 	i = 0;
 	temp = (*stack);
 	s = malloc (sizeof(int) * size);
-	while(temp)
+	while (temp)
 	{
 		s[i] = temp->num;
 		temp = temp->next;
@@ -98,4 +71,12 @@ int	*swap_to_arry(t_list **stack, int *s, int size)
 	}
 	sort(s, size);
 	return (s);
+}
+
+void	rolling(t_list **stack)
+{
+	while ((*stack)->num < (*stack)->next->num)
+	{
+		rra_rrb(stack, 'a');
+	}
 }

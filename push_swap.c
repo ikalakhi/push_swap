@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int ft_creat_stack(int ac, char **av, t_list **stack_a)
+int creat_stack(int ac, char **av, t_list **stack_a)
 {
     int     i;
     int     num;
@@ -33,7 +33,7 @@ int main(int ac, char **av)
     t_list  *stack_b = NULL;
     int     i;
     
-    ft_creat_stack(ac, av, &stack_a);
+    creat_stack(ac, av, &stack_a);
     i = check_numbers(av, ac);
     if (ac < 2 || i == 0)
         return 0;

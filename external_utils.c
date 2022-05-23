@@ -81,22 +81,10 @@ int min_stack(t_list **stack)
     return (i);
 }
 
-void    ft_intialize(t_list **stack_a, t_list **stack_b)
+void    intialize(t_list **stack_a, t_list **stack_b)
 {
     stack_a = NULL;
     stack_b = NULL;
-}
-
-void    print_stack(t_list **stack)
-{
-    t_list *tmp;
-    tmp = (*stack);
-
-    while(tmp)
-    {
-        printf("data is :%d\n", tmp->index);
-        tmp = tmp->next;
-    }
 }
 
 int    check_sorted(t_list *lst)
@@ -110,4 +98,16 @@ int    check_sorted(t_list *lst)
         lst = lst->next;
     }
     return (1);
+}
+
+void    print_stack(t_list **stack)
+{
+    t_list *tmp;
+    tmp = (*stack);
+
+    while(tmp)
+    {
+        printf("[_%d_]\n", tmp->num);
+        tmp = tmp->next;
+    }
 }

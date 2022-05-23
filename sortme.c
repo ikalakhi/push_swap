@@ -50,30 +50,32 @@ void    sort_stack_4(t_list **stack_a, t_list **stack_b)
     int     mid;
     int     size;
 
-    i = 0;
     size = stack_size((*stack_a));
     mid = size / 2;
     i = min_stack(stack_a);
+    print_stack(stack_a);
     while(stack_a)
     {
-        if (((*stack_a)->index * 2) > size)
+        if ((i * 2) >= size)
         {
-            
+            rolling(stack_a);     
         }
+        // else if (((*stack_a)->next * 2) < size)
+        // {
+
+        // }
+        (*stack_a) = (*stack_a)->next;
     }
-    
-    
     put_index(stack_a, size);
-    ft_pb(stack_a, stack_b, 'b');
+    pb(stack_a, stack_b, 'b');
     sort_stack_3(stack_a);
-    ft_pa(stack_a, stack_b, 'a');
+    pa(stack_a, stack_b, 'a');
     printf("min is = %d\n", i);
-    print_stack(stack_a);
 }
 
 //void sort_5_stack(t_list **stack)
 //{
-// }
+//}
 // void    *sort_big_stack(t_list **stack)
 // {
 // }
