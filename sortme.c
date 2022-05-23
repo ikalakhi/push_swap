@@ -57,7 +57,6 @@ void    sort_stack_4(t_list **stack_a, t_list **stack_b)
     {
         if ((i * 2) >= size)
         {
-            printf(" herr%d\n", i);
             up_rolling(stack_a, i, size);
             pb(stack_a, stack_b, 'b');    
         }
