@@ -43,26 +43,26 @@ void    sort_stack_3(t_list **stack)
         r(stack, 'a');
 }
 
-
 void    sort_stack_4(t_list **stack_a, t_list **stack_b)
 {
-    int     i;
+    int     min;
     int     b;
     int     size;
 
     size = stack_size((*stack_a));
-    i = min_stack(stack_a);
+    min = min_stack(stack_a);
     b = 1;
+    
     while(b)
     {
-        if ((i * 2) >= size)
+        if ((min * 2) >= size)
         {
-            up_rolling(stack_a, i, size);
+            up_rolling(stack_a, min, size);
             pb(stack_a, stack_b, 'b');    
         }
-        else if ((i * 2) < size)
+        else if ((min * 2) < size)
         {
-            down_rolling(stack_a, i);
+            down_rolling(stack_a, min);
             pb(stack_a, stack_b, 'b');
         }
         b--;
@@ -71,9 +71,37 @@ void    sort_stack_4(t_list **stack_a, t_list **stack_b)
     pa(stack_a, stack_b, 'a');
 }
 
-//void sort_5_stack(t_list **stack)
-//{
-//}
-// void    *sort_big_stack(t_list **stack)
-// {
-// }
+void    sort_stack_5(t_list **stack_a, t_list **stack_b)
+{
+    int     b;
+    int     min;
+    int     size;
+
+    b = 1;
+    min = min_stack(stack_a);   
+    size = stack_size((*stack_a));
+    while (b)
+    {
+        if ((min * 2) >= size)
+        {
+            up_rolling(stack_a, min, size);
+            pb(stack_a, stack_b, 'b');
+            sort_stack_4(stack_a, stack_b); 
+        }
+        else if ((min * 2) < size)
+        {
+            down_rolling(stack_a, min);
+            pb(stack_a, stack_b, 'b');
+            sort_stack_4(stack_a, stack_b);
+        }
+        b--;
+    }
+    pa(stack_a, stack_b, 'a');
+}
+
+void    sort_big_stack(t_list **stack_a, t_list **stack_b)
+{
+    int     b;
+    int     min;
+    int     size;
+}

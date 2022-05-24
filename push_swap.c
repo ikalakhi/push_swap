@@ -51,12 +51,10 @@ int main(int ac, char **av)
             sort_stack_3(&stack_a);
         else if (ac == 5)
         {
-            //ft_creat_stack(ac, av, &stack_b);
-
             sort_stack_4(&stack_a, &stack_b);
         }
-        // else
-        //     sort_big_stack(stack_a)
+        else if (ac == 6)
+            sort_stack_5(&stack_a, &stack_b);
     }
     //return 0;
 }
