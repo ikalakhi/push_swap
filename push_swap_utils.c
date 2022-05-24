@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:28:00 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/04/18 15:28:03 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/05/24 18:33:05 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -24,39 +24,33 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-t_list  *ft_lstnew(int number)
+t_list	*ft_lstnew(int number)
 {
-    t_list  *i;
+	t_list	*i;
 
-    i = (t_list *)malloc(sizeof(t_list));
-    if (!i)
-        return(NULL);
-    i->next = NULL;
-    i->num = number;
-    return (i);
+	i = (t_list *)malloc(sizeof(t_list));
+	if (!i)
+		return (NULL);
+	i->next = NULL;
+	i->num = number;
+	return (i);
 }
 
-void    ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    t_list  *t;
-    
-    if (*lst)
-    {
-        t = ft_lstlast(*lst);
-        t->next = &*new;
-    }
-    else
-        *lst = new;
-}
+	t_list	*t;
 
+	if (*lst)
+	{
+		t = ft_lstlast(*lst);
+		t->next = &*new;
+	}
+	else
+		*lst = new;
+}
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    // if (!new || lst)
-    //     return ;
-    // new->next = *lst;
-    // *lst = new;
-
 	if (!new)
 		return ;
 	if (!lst)
@@ -67,7 +61,6 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-
 
 int	ft_atoi(char *str)
 {

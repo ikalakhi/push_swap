@@ -6,15 +6,15 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 21:25:42 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/04/19 21:25:45 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/05/24 18:03:19 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void    erreur(void)
+void	erreur(void)
 {
-    write(2, "erreur\n", 7);
-    exit (1);
+	write (2, "erreur\n", 7);
+	exit (1);
 }
 
 int	stack_size(t_list *list)
@@ -30,7 +30,7 @@ int	stack_size(t_list *list)
 	return (count);
 }
 
-int     *sort(int *arr, int size)
+int	*sort(int *arr, int size)
 {
 	int	i;
 	int	j;

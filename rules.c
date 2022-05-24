@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 23:36:39 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/04/15 23:36:42 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/05/24 18:34:24 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -82,7 +82,6 @@ void	pa(t_list **stack_a, t_list **stack_b, char s)
 {
 	t_list	*tmp;
 
-	
 	if (!(*stack_b))
 		return ;
 	tmp = *stack_b;
