@@ -67,11 +67,8 @@ void    sort_stack_4(t_list **stack_a, t_list **stack_b)
         }
         b--;
     }
-    //put_index(stack_a, size);
     sort_stack_3(stack_a);
     pa(stack_a, stack_b, 'a');
-    print_stack(stack_a);
-    //printf("min is = %d\n", i);
 }
 
 //void sort_5_stack(t_list **stack)
