@@ -32,11 +32,13 @@ int	main(int ac, char **av)
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		i;
+	int		j;
 
-	ft_intialize(&stack_a, &stack_b);
+	intialize(&stack_a, &stack_b);
 	creat_stack(ac, av, &stack_a);
 	i = check_numbers(av, ac);
-	if (ac < 2 || i == 0)
+	j = check_if_sorted(&stack_a);
+	if (ac < 2 || i == 0 || j == 1)
 		return (0);
 	if (i == 1)
 	{
@@ -48,6 +50,9 @@ int	main(int ac, char **av)
 			sort_stack_4(&stack_a, &stack_b);
 		else if (ac == 6)
 			sort_stack_5(&stack_a, &stack_b);
+		else
+			sort_big_stack(&stack_a, &stack_b, (ac - 1));
 	}
+	//print_stack(stack_a);
 	return (0);
 }

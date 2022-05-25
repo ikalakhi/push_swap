@@ -11,29 +11,6 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	check_numbers(char **av, int ac)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	while (av[i] && i < (ac - 1))
-	{
-		while (av[i][j])
-		{
-			if (av[i][j] < '0' || av[i][j] > '9')
-			{
-				return (0);
-			}
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	return (1);
-}
-
 int	find_index(int data, int *array, int size)
 {
 	int	i;
@@ -88,19 +65,6 @@ int	min_stack(t_list **stack)
 		tmp = tmp->next;
 	}
 	return (j);
-}
-
-int	check_sorted(t_list *lst)
-{
-	if (lst == NULL)
-		return (0);
-	while (lst->next)
-	{
-		if (lst->num > lst->next->num)
-			return (0);
-		lst = lst->next;
-	}
-	return (1);
 }
 
 int	*swap_to_arry(t_list **stack, int *s, int size)

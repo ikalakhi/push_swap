@@ -27,11 +27,12 @@ t_list	*ft_lstnew(int number);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_atoi(char *str);
 int		ft_avlenth(char **av);
-int		check_numbers(char **av, int ac);
 int		*sort(int *s, int size);
 int		stack_size(t_list *list);
 int		check_sorted(t_list *lst);
 int		min_stack(t_list **stack);
+int		check_numbers(char **av, int ac);
+int		check_if_sorted(t_list **stack_a);
 int		find_index(int data, int *array, int size);
 int		*swap_to_arry(t_list **stack, int *s, int size);
 int		creat_stack(int ac, char **av, t_list **stack_a);
@@ -55,6 +56,6 @@ void	pa(t_list **stack_a, t_list **stack_b, char s);
 void	pb(t_list **stack_a, t_list **stack_b, char a);
 void	sort_stack_5(t_list **stack_a, t_list **stack_b);
 void	sort_stack_4(t_list **stack_a, t_list **stack_b);
-void	sort_big_stack(t_list **stack_a, t_list **stack_b);
+void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac);
 
 #endif
