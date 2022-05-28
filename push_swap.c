@@ -40,18 +40,21 @@ int	main(int ac, char **av)
 	j = check_if_sorted(&stack_a);
 	if (ac < 2 || i == 0 || j == 1)
 		return (0);
+	ac = ac - 1;
 	if (i == 1)
 	{
-		if (ac == 3)
+		if (ac == 2)
 			sort_stack_2(&stack_a);
-		else if (ac == 4)
+		else if (ac == 3)
 			sort_stack_3(&stack_a);
-		else if (ac == 5)
+		else if (ac == 4)
 			sort_stack_4(&stack_a, &stack_b);
-		else if (ac == 6)
+		else if (ac == 5)
 			sort_stack_5(&stack_a, &stack_b);
+		else if (ac >= 6 && ac <= 10)
+			sort_stack_5_to_10(&stack_a, &stack_b, ac);
 		else
-			sort_big_stack(&stack_a, &stack_b, (ac - 1));
+			sort_big_stack(stack_a, stack_b, ac);
 	}
 	//print_stack(stack_a);
 	return (0);

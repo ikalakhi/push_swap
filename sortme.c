@@ -101,17 +101,16 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b, 'a');
 }
 
-void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
+void	sort_stack_5_to_10(t_list **stack_a, t_list **stack_b, int ac)
 {
-	int	b;
-	int	min;
-	int	size;
-
-	b = 1;
-	min = min_stack(stack_a);
-	size = stack_size((*stack_a));
-	if (ac > 5 && ac <= 100)
-	{
-		
-	}
+	if (ac == 6)
+		sort_stack_6(stack_a, stack_b);
+	else if (ac == 7)
+		sort_stack_7(stack_a, stack_b);
+	else if (ac == 8)
+		sort_stack_8(stack_a, stack_b);
+	else if (ac == 9)
+		sort_stack_9(stack_a, stack_b);
+	else if (ac == 10)
+		sort_stack_10(stack_a, stack_b);
 }

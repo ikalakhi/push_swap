@@ -82,6 +82,10 @@ int	ft_atoi(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nb = nb * 10 + (str[i] - 48);
+		if (nb > 2147483647 && s > 0)
+			erreur();
+		else if (nb > 2147483648 && s < 0)
+			erreur();
 		i++ ;
 	}
 	return (s * nb);

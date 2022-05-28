@@ -27,8 +27,8 @@ int	find_index(int data, int *array, int size)
 
 void	put_index(t_list **stack, int size)
 {
-	int		i;
 	t_list	*p;
+	int		i;
 	int		*s;
 
 	s = NULL;
@@ -83,6 +83,7 @@ int	*swap_to_arry(t_list **stack, int *s, int size)
 		temp = temp->next;
 		i++;
 	}
+	s = sort(s, size);
 	return (s);
 }
 

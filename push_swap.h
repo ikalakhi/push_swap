@@ -37,6 +37,7 @@ int		find_index(int data, int *array, int size);
 int		*swap_to_arry(t_list **stack, int *s, int size);
 int		creat_stack(int ac, char **av, t_list **stack_a);
 void	erreur(void);
+void    deviding(int ac);
 void	rr(t_list **lst);
 void	rolling(t_list **stack);
 void	s(t_list **lst, char s);
@@ -54,8 +55,14 @@ void	intialize(t_list **stack_a, t_list **stack_b);
 void	sort_stack_4(t_list **stack, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b, char s);
 void	pb(t_list **stack_a, t_list **stack_b, char a);
-void	sort_stack_5(t_list **stack_a, t_list **stack_b);
 void	sort_stack_4(t_list **stack_a, t_list **stack_b);
+void	sort_stack_5(t_list **stack_a, t_list **stack_b);
+void	sort_stack_6(t_list **stack_a, t_list **stack_b);
+void    sort_stack_7(t_list **stack_a, t_list **stack_b);
+void    sort_stack_8(t_list **stack_a, t_list **stack_b);
+void    sort_stack_9(t_list **stack_a, t_list **stack_b);
+void    sort_stack_10(t_list **stack_a, t_list **stack_b);
 void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac);
+void	sort_stack_5_to_10(t_list **stack_a, t_list **stack_b, int ac);
 
 #endif
