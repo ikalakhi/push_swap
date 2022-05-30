@@ -24,7 +24,7 @@ int dividing(int ac, int b)
 
 void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 {
-    char    *s;
+    char    *s;//sorted stack
 	int	    b;
 	int	    min;
 	int	    mid;
@@ -32,12 +32,11 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 
 	b = 1;
     s = swap_to_arry(stack_a, s, ac);
-	min = min_stack(stack_a);
-	//size = stack_size((*stack_a));
-	mid = size / 2;
+	ac = ac / 4;
 	while (stack_a)
 	{
-        
+
     }
+	free (s);
 }
 

@@ -54,7 +54,7 @@ int	main(int ac, char **av)
 		else if (ac >= 6 && ac <= 10)
 			sort_stack_5_to_10(&stack_a, &stack_b, ac);
 		else
-			sort_big_stack(stack_a, stack_b, ac);
+			sort_big_stack(&stack_a, &stack_b, ac);
 	}
 	//print_stack(stack_a);
 	return (0);

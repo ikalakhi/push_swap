@@ -40,7 +40,6 @@ void	put_index(t_list **stack, int size)
 		p->index = find_index(p->num, s, size);
 		p = p->next;
 	}
-	free (s);
 }
 
 int	min_stack(t_list **stack)
@@ -84,6 +83,7 @@ int	*swap_to_arry(t_list **stack, int *s, int size)
 		i++;
 	}
 	s = sort(s, size);
+	put_index(s, size);
 	return (s);
 }
 
