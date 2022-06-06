@@ -35,8 +35,7 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	ac = ac / 4;
 	while (stack_a)
 	{
-
+		
     }
 	free (s);
 }
-
