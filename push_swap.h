@@ -34,7 +34,7 @@ int		min_stack(t_list **stack);
 int		check_numbers(char **av, int ac);
 int		check_if_sorted(t_list **stack_a);
 int		find_index(int data, int *array, int size);
-int		*swap_to_arry(t_list **stack, int *s, int size);
+int		*swap_sort_arry(t_list **stack, int *s, int size);
 int		creat_stack(int ac, char **av, t_list **stack_a);
 void	erreur(void);
 void    deviding(int ac);

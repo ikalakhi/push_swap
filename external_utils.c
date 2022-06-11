@@ -66,7 +66,7 @@ int	min_stack(t_list **stack)
 	return (j);
 }
 
-int	*swap_to_arry(t_list **stack, int *s, int size)
+int	*swap_sort_arry(t_list **stack, int *s, int size)
 {
 	t_list	*temp;
 	int		i;
