@@ -19,11 +19,21 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	int	    mid;
 	int	    size;
 
-	b = 1;
     s = swap_sort_arry(stack_a, s, ac);
-	ac = ac / 4;
-	while (stack_a)
+	b = dividing(ac, b);
+	while (ac >= 0)
 	{
+		ac = ac / b;
+		
     }
 	free (s);
+}
+
+int dividing(int ac, int b)
+{
+	if (ac > 10 && ac <= 100)
+		b = 4;
+	else if (ac > 100)
+		b = 8;
+	return (b);
 }
