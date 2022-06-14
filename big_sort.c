@@ -19,8 +19,8 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	int	    mid;
 	int	    size;
 
-    s = swap_sort_arry(stack_a, s, ac);
-	b = dividing(ac, b);
+    put_index(stack_a, ac);
+	b = dividing(ac, b); 
 	while (ac >= 0)
 	{
 		ac = ac / b;

@@ -32,7 +32,7 @@ void	put_index(t_list **stack, int size)
 	int		*s;
 
 	s = NULL;
-	s = swap_to_arry(stack, s, size);
+	s = swap_sort_arry(stack, s, size);
 	i = 0;
 	p = (*stack);
 	while (p)
@@ -40,6 +40,26 @@ void	put_index(t_list **stack, int size)
 		p->index = find_index(p->num, s, size);
 		p = p->next;
 	}
+}
+
+int	*swap_sort_arry(t_list **stack, int *s, int size)
+{
+	t_list	*temp;
+	int		i;
+
+	i = 0;
+	temp = (*stack);
+	s = malloc (sizeof(int) * size);
+	if (!s)
+		return (0);
+	while (temp)
+	{
+		s[i] = temp->num;
+		temp = temp->next;
+		i++;
+	}
+	s = sort(s, size);
+	return (s);
 }
 
 int	min_stack(t_list **stack)
@@ -64,27 +84,6 @@ int	min_stack(t_list **stack)
 		tmp = tmp->next;
 	}
 	return (j);
-}
-
-int	*swap_sort_arry(t_list **stack, int *s, int size)
-{
-	t_list	*temp;
-	int		i;
-
-	i = 0;
-	temp = (*stack);
-	s = malloc (sizeof(int) * size);
-	if (!s)
-		return (0);
-	while (temp)
-	{
-		s[i] = temp->num;
-		temp = temp->next;
-		i++;
-	}
-	s = sort(s, size);
-	put_index(s, size);
-	return (s);
 }
 
 void	intialize(t_list **stack_a, t_list **stack_b)
