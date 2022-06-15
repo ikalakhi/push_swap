@@ -25,13 +25,11 @@ int	find_index(int data, int *array, int size)
 	return (i);
 }
 
-void	put_index(t_list **stack, int size)
+void	put_index(t_list **stack, ,char *s, int size)
 {
 	t_list	*p;
 	int		i;
-	int		*s;
 
-	s = NULL;
 	s = swap_sort_arry(stack, s, size);
 	i = 0;
 	p = (*stack);
