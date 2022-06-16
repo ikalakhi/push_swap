@@ -40,7 +40,8 @@ int	find_your_twin(t_list **stack, char *s, int ac)
 	put_index(stack_a, s, ac);
 	while (temp)
 	{
-		if (s[i] == temp)
+		if (s[i] >= temp->index)
+			
 	}
 	
 }
