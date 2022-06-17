@@ -30,7 +30,7 @@ int	stack_size(t_list *list)
 	return (count);
 }
 
-int	*sort(int *arr, int size)
+char	*sort(char *arr, int size)
 {
 	int	i;
 	int	j;
