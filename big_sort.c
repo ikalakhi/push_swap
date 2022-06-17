@@ -27,8 +27,6 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 		ac = ac / b;
     	find_your_twin(stack, s, ac)
 		
-
-		
     }
 	free (s);
 }
