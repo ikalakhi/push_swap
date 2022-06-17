@@ -35,17 +35,10 @@ int		min_stack(t_list **stack);
 int		check_numbers(char **av, int ac);
 int		check_if_sorted(t_list **stack_a);
 int		find_index(int data, char *array, int size);
-<<<<<<< HEAD
 int		find_your_twin(t_list **stack, char *s, int ac);
 char	*swap_sort_arry(t_list **stack, char *s, int size);
 int		creat_stack(int ac, char **av, t_list **stack_a);
 void	erreur(void);
-=======
-char	*swap_sort_arry(t_list **stack, char *s, int size);
-int		creat_stack(int ac, char **av, t_list **stack_a);
-void	erreur(void);
-int		deviding(int ac);
->>>>>>> 53dc54af26d04a6142beb835c9be7a5e8d2c1c6d
 void	rr(t_list **lst);
 void	rolling(t_list **stack);
 void	s(t_list **lst, char s);
