@@ -20,14 +20,16 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	int	    size;
 
 	b = 0;
-	b = dividing(ac, b);
+	b = deviding(ac, b);
 	put_index(stack_a, s, ac);
-	while (ac >= 0)
+	while (ac >= 10)
 	{
 		ac = ac / b;
-    	find_your_twin(stack, s, ac)
-		
+    	find_your_twin(stack_a, s, ac);
+		pb(stack_a, stack_b, 'b');
     }
+	if (ac == 10)
+		sort_stack_5_to_10(stack_a, stack_b, ac);
 	free (s);
 }
 
@@ -44,7 +46,7 @@ int	find_your_twin(t_list **stack, char *s, int ac)
 	}
 }
 
-int	dividing(int ac, int b)
+int	deviding(int ac, int b)
 {
 	if (ac > 10 && ac <= 100)
 		b = 4;

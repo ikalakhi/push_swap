@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	find_index(int data, int *array, int size)
+int	find_index(int data, char *array, int size)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ int	find_index(int data, int *array, int size)
 	return (i);
 }
 
-void	put_index(t_list **stack, ,char *s, int size)
+void	put_index(t_list **stack, char *s, int size)
 {
 	t_list	*p;
 	int		i;
@@ -40,7 +40,7 @@ void	put_index(t_list **stack, ,char *s, int size)
 	}
 }
 
-int	*swap_sort_arry(t_list **stack, int *s, int size)
+char	*swap_sort_arry(t_list **stack, int *s, int size)
 {
 	t_list	*temp;
 	int		i;
