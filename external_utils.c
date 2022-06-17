@@ -40,7 +40,11 @@ void	put_index(t_list **stack, char *s, int size)
 	}
 }
 
+<<<<<<< HEAD
 char	*swap_sort_arry(t_list **stack, char *s, int size)
+=======
+char	*swap_sort_arry(t_list **stack, int *s, int size)
+>>>>>>> 53dc54af26d04a6142beb835c9be7a5e8d2c1c6d
 {
 	t_list	*temp;
 	int		i;
