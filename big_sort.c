@@ -34,6 +34,11 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 		
 		pb(stack_a, stack_b, 'b');
     }
+
+
+
+
+	
 	free (s);
 }
 
