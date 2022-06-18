@@ -56,7 +56,7 @@ int	main(int ac, char **av)
 		else
 			sort_big_stack(&stack_a, &stack_b, ac);
 	}
-	//print_stack(stack_a);
+	print_stack(&stack_a);
 	return (0);
 }
  

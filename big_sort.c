@@ -16,34 +16,34 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
     char    *s;//sorted stack
 	int	    b;
 	int	    num;
-	int	    min;
 	int	    size;
 
 	b = 0;
 	size = ac;
 	s = NULL;
-	min = min_stack(stack_a);
 	b = deviding(ac, b);
 	put_index(stack_a, s, ac);
-	if (ac >= 0)
+	printf("I am here\n");
+	ac = ac / b;
+    num = find_your_twin(stack_a, s, ac);
+	while ((*stack_a)->next)
 	{
-		ac = ac / b;
-    	num = find_your_twin(stack_a, s, ac);
-		while ((*stack_a)->num != num)
+		if ((num * 2) >= size)
 		{
-			if ((min * 2) >= size)
-			{
-				up_rolling(stack_a, min, size);
-				pb(stack_a, stack_b, 'b');
-			}
-			else if ((min * 2) < size)
-			{
-				down_rolling(stack_a, min);
-				pb(stack_a, stack_b, 'b');
-			}
+			up_rolling(stack_a, num, size);
+			pb(stack_a, stack_b, 'b');
 		}
-		pb(stack_a, stack_b, 'b');
-    }
+		else if ((num * 2) < size)
+		{
+			down_rolling(stack_a, num);
+			pb(stack_a, stack_b, 'b');
+		}
+		printf("I am here\n");
+	}
+	while ((*stack_b)->next)
+	{
+		pa(stack_a, stack_b, 'b');
+	}
 	free (s);
 }
 
@@ -59,6 +59,7 @@ int	find_your_twin(t_list **stack, char *s, int ac)
 			return(temp->num);
 		temp = temp->next;
 	}
+	return(temp->index);
 }
 
 int	deviding(int ac, int b)
