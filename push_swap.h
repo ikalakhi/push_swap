@@ -23,6 +23,12 @@ typedef struct node
 	struct node	*next;
 }	t_list;
 
+typedef struct s_index
+{
+	int pos;
+	int index;
+}		t_index;
+
 t_list	*ft_lstnew(int number);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_atoi(char *str);
@@ -35,7 +41,7 @@ int		min_stack(t_list **stack);
 int		check_numbers(char **av, int ac);
 int		check_if_sorted(t_list **stack_a);
 int		find_index(int data, char *array, int size);
-int		find_your_twin(t_list **stack, char *s, int ac);
+t_index	find_your_twin(t_list **stack, char *s, int ac);
 char	*swap_sort_arry(t_list **stack, char *s, int size);
 int		creat_stack(int ac, char **av, t_list **stack_a);
 void	erreur(void);

@@ -15,56 +15,75 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 {
     char    *s;//sorted stack
 	int	    b;
-	int	    num;
+	t_index	num;
 	int	    size;
 
 	b = 0;
 	size = ac;
 	s = NULL;
 	b = deviding(ac, b);
-	put_index(stack_a, s, ac);
-	printf("I am here\n");
+	s = swap_sort_arry(stack_a, s, ac);
 	ac = ac / b;
-    num = find_your_twin(stack_a, s, ac);
-	while ((*stack_a)->next)
+	b = 0;
+	while (b < ac)
 	{
-		if ((num * 2) >= size)
+		num = find_your_twin(stack_a, s, ac);
+		if ((num.pos * 2) >= size / 2)
 		{
-			up_rolling(stack_a, num, size);
+			up_rolling(stack_a, num.pos, size);
 			pb(stack_a, stack_b, 'b');
 		}
-		else if ((num * 2) < size)
+		else
 		{
-			down_rolling(stack_a, num);
+			down_rolling(stack_a, num.pos);
 			pb(stack_a, stack_b, 'b');
 		}
-		printf("I am here\n");
+		b++;
+		//printf("I am here\n");
 	}
-	while ((*stack_b)->next)
-	{
-		pa(stack_a, stack_b, 'b');
-	}
+	// while (*stack_b)
+	// {
+	// 	printf("idx = %d\n",(*stack_b)->index);
+	// 	*stack_b = (*stack_b) ->next;
+	// }
+	
+	print_stack(stack_b);
+	// while ((*stack_b)->next)
+	// {
+	// 	pa(stack_a, stack_b, 'b');
+	// }
 	free (s);
 }
 
-int	find_your_twin(t_list **stack, char *s, int ac)
+
+t_index	find_your_twin(t_list **stack, char *s, int ac)
 {
 	t_list	*temp;
-	s = NULL;
+	int		i;
+	t_index index;
 
+	index.pos = -1;
+	index.index = -1;
+	i = 0;
+	s = NULL;
 	temp = (*stack);
 	while (temp)
 	{
 		if (ac >= temp->index)
-			return(temp->num);
+		{
+			index.pos = i;
+			index.index = temp ->index;
+			break;
+		}
+		i++;
 		temp = temp->next;
 	}
-	return(temp->index);
+	return(index);
 }
 
 int	deviding(int ac, int b)
 {
-	if (ac > 10 && ac <= 100)
+	if (ac <= 100)
 		b = 4;
 	else if (ac > 100)
 		b = 8;

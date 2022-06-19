@@ -30,7 +30,6 @@ void	put_index(t_list **stack, char *s, int size)
 	t_list	*p;
 	int		i;
 
-	s = swap_sort_arry(stack, s, size);
 	i = 0;
 	p = (*stack);
 	while (p)
@@ -57,6 +56,7 @@ char	*swap_sort_arry(t_list **stack, char *s, int size)
 		i++;
 	}
 	s = sort(s, size);
+	put_index(stack, s, i);
 	return (s);
 }
 
@@ -97,7 +97,7 @@ void    print_stack(t_list **stack)
 
     while(tmp)
     {
-        printf("[_%d_]\n", tmp->num);
+        printf("[_%d_]\n", tmp->index);
         tmp = tmp->next;
     }
 }
