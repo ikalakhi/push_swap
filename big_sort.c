@@ -33,7 +33,6 @@ void	check_stack_a(t_list **stack_a, t_list **stack_b)
 
 	size = stack_size((*stack_a));
 	b = 1;
-	//printf("i am here\n");
 	if (size <= 10)
 		check_size(stack_a, stack_b, size);
 	while (size > 10)
@@ -94,7 +93,6 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 		fill_stack_b(stack_a, stack_b, size, chunk);
 		chunk = chunk + (ac / b);
 	}
-	//printf("i am here again\n");
 	if (stack_a)
 		check_stack_a(stack_a, stack_b);
 	push_to_stack_a(stack_a, stack_b);
@@ -107,20 +105,18 @@ void	push_to_stack_a(t_list **stack_a, t_list **stack_b)
 	int	size;
 	int	max;
 
-	//printf("hello\n");
-	//int i = 0;
 	size = stack_size((*stack_b));
 	while (size > 0)
 	{
 		max = max_stack(stack_b);
 		if ((max * 2) >= size)
 		{
-			up_rolling(stack_b, max, size, 'a');
+			up_rolling(stack_b, max, size, 'b');
 			pa(stack_a, stack_b, 'a');
 		}
 		else if ((max * 2) < size)
 		{
-			down_rolling(stack_b, max, 'a');
+			down_rolling(stack_b, max, 'b');
 			pa(stack_a, stack_b, 'a');
 		}
 		size--;

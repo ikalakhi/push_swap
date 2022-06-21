@@ -97,7 +97,7 @@ void    print_stack(t_list **stack)
 
     while(tmp)
     {
-        printf("[_%d_]\n", tmp->index);
+        printf("[_%d_]\n", tmp->num);
         tmp = tmp->next;
     }
 }
