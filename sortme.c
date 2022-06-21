@@ -59,12 +59,12 @@ void	sort_stack_4(t_list **stack_a, t_list **stack_b)
 	{
 		if ((min * 2) >= size)
 		{
-			up_rolling(stack_a, min, size);
+			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 		}
 		else if ((min * 2) < size)
 		{
-			down_rolling(stack_a, min);
+			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
 		}
 		b--;
@@ -86,13 +86,13 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 	{
 		if ((min * 2) >= size)
 		{
-			up_rolling(stack_a, min, size);
+			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_4(stack_a, stack_b);
 		}
 		else if ((min * 2) < size)
 		{
-			down_rolling(stack_a, min);
+			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_4(stack_a, stack_b);
 		}

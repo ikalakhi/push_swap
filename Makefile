@@ -14,7 +14,7 @@ NAME = push_swap
 
 SRC = push_swap.c rules.c push_swap_utils.c sorting_utils.c sortme.c \
 		external_utils.c less_tan_10_sort_utils.c checking_functions.c \
-		big_sort.c
+		big_sort.c big_sort_utils.c
 
 OBJS = $(SRC:.c=.o)
 CFLAGS = -Wall -Wextra -Werror

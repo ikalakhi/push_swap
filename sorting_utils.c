@@ -22,6 +22,8 @@ int	stack_size(t_list *list)
 	int	count;
 
 	count = 0;
+	if (!list)
+		return (0);
 	while (list)
 	{
 		count++;
@@ -55,20 +57,20 @@ char	*sort(char *arr, int size)
 	return (arr);
 }
 
-void	up_rolling(t_list **stack, int i, int size)
+void	up_rolling(t_list **stack, int i, int size, char s)
 {
 	while (i < size)
 	{
-		rra_rrb(stack, 'a');
+		rra_rrb(stack, s);
 		i++;
 	}
 }
 
-void	down_rolling(t_list **stack, int i)
+void	down_rolling(t_list **stack, int i, char s)
 {
 	while (i > 0)
 	{
-		r(stack, 'a');
+		r(stack, s);
 		i--;
 	}
 }

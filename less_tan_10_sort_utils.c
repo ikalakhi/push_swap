@@ -24,13 +24,13 @@ void    sort_stack_6(t_list **stack_a, t_list **stack_b)
 	{
 		if ((min * 2) >= size)
 		{
-			up_rolling(stack_a, min, size);
+			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_5(stack_a, stack_b);
 		}
 		else if ((min * 2) < size)
 		{
-			down_rolling(stack_a, min);
+			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_5(stack_a, stack_b);
 		}
@@ -52,13 +52,13 @@ void    sort_stack_7(t_list **stack_a, t_list **stack_b)
 	{
 		if ((min * 2) >= size)
 		{
-			up_rolling(stack_a, min, size);
+			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_6(stack_a, stack_b);
 		}
 		else if ((min * 2) < size)
 		{
-			down_rolling(stack_a, min);
+			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_6(stack_a, stack_b);
 		}
@@ -80,13 +80,13 @@ void    sort_stack_8(t_list **stack_a, t_list **stack_b)
 	{
 		if ((min * 2) >= size)
 		{
-			up_rolling(stack_a, min, size);
+			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_7(stack_a, stack_b);
 		}
 		else if ((min * 2) < size)
 		{
-			down_rolling(stack_a, min);
+			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_7(stack_a, stack_b);
 		}
@@ -108,13 +108,13 @@ void    sort_stack_9(t_list **stack_a, t_list **stack_b)
 	{
 		if ((min * 2) >= size)
 		{
-			up_rolling(stack_a, min, size);
+			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_8(stack_a, stack_b);
 		}
 		else if ((min * 2) < size)
 		{
-			down_rolling(stack_a, min);
+			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_8(stack_a, stack_b);
 		}
@@ -136,13 +136,13 @@ void    sort_stack_10(t_list **stack_a, t_list **stack_b)
 	{
 		if ((min * 2) >= size)
 		{
-			up_rolling(stack_a, min, size);
+			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_9(stack_a, stack_b);
 		}
 		else if ((min * 2) < size)
 		{
-			down_rolling(stack_a, min);
+			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_9(stack_a, stack_b);
 		}
