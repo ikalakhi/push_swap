@@ -13,12 +13,10 @@
 
 int deviding(int ac, int b)
 {
-	if (ac >= 250 && ac < 350)
-		b = 6;
-	else if (ac > 100)
-		b = 5;
-	if (ac <= 100)
-		b = 3;
+	if (ac > 100)
+		b = 8;
+	else if (ac <= 100)
+		b = 4;
 	return (b);
 }
 

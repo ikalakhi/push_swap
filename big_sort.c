@@ -80,10 +80,18 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
     char    *s;//sorted stack
 	int	    b;
 	int		chunk;
+	int		min;
+	int		mid;
+	int		max;
 	int	    size;
+	int		to_be_pushed;
 
 	b = 0;
 	size = ac;
+	min = min_stack(stack_a);
+	max = max_stack(stack_a);
+	mid = (min + max) / 2;
+	to_be_pushed = (size - 5) / (4 + 1);
 	s = NULL;
 	b = deviding(ac, b);
 	s = swap_sort_arry(stack_a, s, ac);
