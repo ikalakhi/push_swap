@@ -38,9 +38,10 @@ int	main(int ac, char **av)
 	s = NULL;
 	intialize(&stack_a, &stack_b);
 	creat_stack(ac, av, &stack_a);
-	s = swap_sort_arry(&stack_a, s, ac);
 	i = check_numbers(av, ac);
 	j = check_if_sorted(&stack_a);
+	s = swap_sort_arry(&stack_a, s, ac);
+	//print_stack(&stack_a);
 	if (ac < 2 || i == 0 || j == 1)
 		return (0);
 	ac = ac - 1;
@@ -60,7 +61,7 @@ int	main(int ac, char **av)
 			sort_big_stack(&stack_a, &stack_b, ac);
 	}
 	free (s);
-	//print_stack(&stack_a);
+	print_stack(&stack_a);
 	return (0);
 }
  

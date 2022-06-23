@@ -88,7 +88,7 @@ int    find_min(t_list **stack)
     min = p->index;
     while (p)
     {
-        if (min < p->index)
+        if (min > p->index)
             min = p->index;
         p = p->next;
     }

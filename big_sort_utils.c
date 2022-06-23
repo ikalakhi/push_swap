@@ -25,7 +25,6 @@ void	up_roll(t_list **stack, int pos, int size, char s)
 	int a;
 
 	a = 0;
-	//printf("-------------------------rra------------------------------\n");
 	while (a <= (size - pos))
 	{
 		rra_rrb(stack, s);
@@ -38,7 +37,6 @@ void	down_roll(t_list **stack, int pos, int size, char s)
 	int a;
 
 	a = 0;
-	//printf("----------------------------ra---------------------------\n");
 	while (a < (size - pos))
 	{
 		r(stack, s);

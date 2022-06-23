@@ -14,7 +14,7 @@
 void push_to_b(t_list **stack_a, t_list **stack_b, int mid)
 {
 	pb(stack_a, stack_b, 'b');
-	if ((*stack_b)->index >= mid)
+	if ((*stack_b)->index > mid)
 		r(stack_b, 'b');
 }
 
@@ -37,14 +37,12 @@ void	fill_stack_b(t_list **stack_a, t_list **stack_b, int size,\
 		// printf("--------------------------------\n");
 		if (num.index >= mid)
 		{
-			printf("I am herre1\n");
 			//printf("-----------------1------------------\n");
 			up_roll(stack_a, num.pos, size, 'a');
 			push_to_b(stack_a, stack_b, mid);
 		}
 		else if (num.index < mid)
 		{
-			printf("-----------------2------------------\n");
 			down_roll(stack_a, num.pos, size, 'a');
 			push_to_b(stack_a, stack_b, mid);
 		}
@@ -65,16 +63,16 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	{
 		size = stack_size(*stack_a);
 		min = min_stack(stack_a);
-		to_be_pushed = ((size - 5) / 3 ) + 1;
-		max = (to_be_pushed + 1) - min;
+		to_be_pushed = (size - 5) / 3  + 1;
+		max = (min + to_be_pushed ) - 1;
 		mid = (min + max) / 2;
 		fill_stack_b(stack_a, stack_b, size, min, max, mid, to_be_pushed);
 		printf("------------------------here-------------------------------\n");
-		ac --;
 	}
 	printf("------------------------80------------------------------\n");
-	sort_stack_5_to_10(stack_a, stack_b, ac);
-	print_stack(stack_b);
+	sort_stack_5_to_10(stack_a, stack_b, size);
+	//printf("I am here");
+	//print_stack(stack_b);
 	//fill_stack_a(stack_a, stack_b);
 }
 

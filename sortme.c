@@ -57,12 +57,12 @@ void	sort_stack_4(t_list **stack_a, t_list **stack_b)
 	b = 1;
 	while (b)
 	{
-		if ((min * 2) >= size)
+		if (min >= size / 2)
 		{
 			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 		}
-		else if ((min * 2) < size)
+		else if (min < size / 2)
 		{
 			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
@@ -81,17 +81,16 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 
 	b = 1;
 	min = min_stack(stack_a);
-	//printf("min is = %d", min);
 	size = stack_size((*stack_a));
 	while (b)
 	{
-		if ((min * 2) >= size)
+		if (min >= size / 2)
 		{
 			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_4(stack_a, stack_b);
 		}
-		else if ((min * 2) < size)
+		else if (min < size / 2)
 		{
 			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
@@ -99,6 +98,7 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 		}
 		b--;
 	}
+	sort_stack_4(stack_a, stack_b);
 	pa(stack_a, stack_b, 'a');
 }
 
