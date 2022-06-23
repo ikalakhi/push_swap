@@ -81,6 +81,7 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 
 	b = 1;
 	min = min_stack(stack_a);
+	//printf("min is = %d", min);
 	size = stack_size((*stack_a));
 	while (b)
 	{
@@ -103,6 +104,7 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 
 void	sort_stack_5_to_10(t_list **stack_a, t_list **stack_b, int ac)
 {
+	
 	if (ac == 6)
 		sort_stack_6(stack_a, stack_b);
 	else if (ac == 7)

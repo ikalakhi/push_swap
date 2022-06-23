@@ -31,11 +31,12 @@ typedef struct s_index
 
 t_list	*ft_lstnew(int number);
 t_list	*ft_lstlast(t_list *lst);
-t_index	find_your_twin(t_list **stack, int ac);
+t_index	find_your_twin(t_list **stack, int min, int max);
 
 int		ft_atoi(char *str);
 int		ft_avlenth(char **av);
 int		deviding(int ac, int b);
+int		find_min(t_list **stack);
 int		stack_size(t_list *list);
 int		max_stack(t_list **stack);
 int		check_sorted(t_list *lst);
@@ -59,7 +60,6 @@ void	sort_stack_3(t_list **stack);
 void	rra_rrb(t_list **lst, char s);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-void	down_rolling(t_list **stack, int i, char s);
 void	put_index(t_list **stack, char *s, int size);
 void	intialize(t_list **stack_a, t_list **stack_b);
 void	sort_stack_4(t_list **stack, t_list **stack_b);
@@ -73,11 +73,14 @@ void    sort_stack_8(t_list **stack_a, t_list **stack_b);
 void    sort_stack_9(t_list **stack_a, t_list **stack_b);
 void    sort_stack_10(t_list **stack_a, t_list **stack_b);
 void	check_stack_a(t_list **stack_a, t_list **stack_b);
-void	up_rolling(t_list **stack, int i, int size, char s);
+void	up_roll(t_list **stack, int pos, int size, char s);
 void	push_to_stack_a(t_list **stack_a, t_list **stack_b);
+void	down_roll(t_list **stack, int pos, int min, char s);
+void	up_rolling(t_list **stack, int min, int size, char s);
+void	down_rolling(t_list **stack, int size, char s);
 void	check_size(t_list **stack_a, t_list **stack_b, int size);
 void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac);
 void	sort_stack_5_to_10(t_list **stack_a, t_list **stack_b, int ac);
-void	fill_stack_b(t_list **stack_a, t_list **stack_b, int size, int chunk);
+void	fill_stack_b(t_list **stack_a, t_list **stack_b, int size, int min, int max, int mid, int to_be_pushed);
 
 #endif

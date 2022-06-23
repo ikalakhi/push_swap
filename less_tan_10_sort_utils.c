@@ -134,18 +134,19 @@ void    sort_stack_10(t_list **stack_a, t_list **stack_b)
 	size = stack_size((*stack_a));
 	while (b)
 	{
-		if ((min * 2) >= size)
+		if ((min * 2) >= size / 2)
 		{
 			up_rolling(stack_a, min, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_9(stack_a, stack_b);
 		}
-		else if ((min * 2) < size)
+		else if ((min * 2) < size / 2)
 		{
 			down_rolling(stack_a, min, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_9(stack_a, stack_b);
 		}
+		printf("I am herre");
 		b--;
 	}
 	pa(stack_a, stack_b, 'a');

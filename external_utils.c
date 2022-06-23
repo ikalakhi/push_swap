@@ -62,26 +62,37 @@ char	*swap_sort_arry(t_list **stack, char *s, int size)
 
 int	min_stack(t_list **stack)
 {
-	int		i;
-	int		j;
-	int		box;
-	t_list	*tmp;
+    int        i;
+    int        min;
+    t_list    *p;
 
-	tmp = (*stack);
-	i = 0;
-	j = 0;
-	box = tmp->num;
-	while (tmp)
-	{
-		if (box > tmp->num)
-		{
-			j = i;
-			box = tmp->num;
-		}
-		i++;
-		tmp = tmp->next;
-	}
-	return (j);
+    p = (*stack);
+    i = 0;
+    min = find_min(stack);
+    while (p)
+    {
+        if (p->index == min)
+            return (i);
+        (p) = (p)->next;
+        i++;
+    }
+    return (i);
+}
+
+int    find_min(t_list **stack)
+{
+    int        min;
+    t_list    *p;
+
+    p = (*stack);
+    min = p->index;
+    while (p)
+    {
+        if (min < p->index)
+            min = p->index;
+        p = p->next;
+    }
+    return (min);
 }
 
 void	intialize(t_list **stack_a, t_list **stack_b)

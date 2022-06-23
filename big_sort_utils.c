@@ -20,6 +20,32 @@ int deviding(int ac, int b)
 	return (b);
 }
 
+void	up_roll(t_list **stack, int pos, int size, char s)
+{
+	int a;
+
+	a = 0;
+	//printf("-------------------------rra------------------------------\n");
+	while (a <= (size - pos))
+	{
+		rra_rrb(stack, s);
+		a++;
+	}
+}
+
+void	down_roll(t_list **stack, int pos, int size, char s)
+{
+	int a;
+
+	a = 0;
+	//printf("----------------------------ra---------------------------\n");
+	while (a < (size - pos))
+	{
+		r(stack, s);
+		a++;
+	}
+}
+
 int max_stack(t_list **stack)
 {
     int		i;
@@ -44,11 +70,11 @@ int max_stack(t_list **stack)
 	return (j);
 }
 
-t_index	find_your_twin(t_list **stack, int ac)
+t_index	find_your_twin(t_list **stack, int min, int max)
 {
 	t_list	*temp;
-	int		i;
 	t_index index;
+	int		i;
 
 	index.pos = -1;
 	index.index = -1;
@@ -56,7 +82,7 @@ t_index	find_your_twin(t_list **stack, int ac)
 	temp = (*stack);
 	while (temp)
 	{
-		if (ac >= temp->index)
+		if (min <= temp->index  && temp->index <= max)
 		{
 			index.pos = i;
 			index.index = temp ->index;

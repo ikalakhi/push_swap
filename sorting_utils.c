@@ -57,20 +57,20 @@ char	*sort(char *arr, int size)
 	return (arr);
 }
 
-void	up_rolling(t_list **stack, int i, int size, char s)
+void	up_rolling(t_list **stack, int min, int size, char s)
 {
-	while (i < size)
+	while (min < size)
 	{
 		rra_rrb(stack, s);
-		i++;
+		min++;
 	}
 }
 
-void	down_rolling(t_list **stack, int i, char s)
+void	down_rolling(t_list **stack, int size, char s)
 {
-	while (i > 0)
+	while (size > 0)
 	{
 		r(stack, s);
-		i--;
+		size--;
 	}
 }
