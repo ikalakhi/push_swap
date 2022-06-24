@@ -73,7 +73,7 @@ int	min_stack(t_list **stack)
     {
         if (p->index == min)
             return (i);
-        (p) = (p)->next;
+        p = p->next;
         i++;
     }
     return (i);
@@ -108,7 +108,7 @@ void    print_stack(t_list **stack)
 
     while(tmp)
     {
-        printf("[_%d_]\n", tmp->num);
+        printf("[_%d_]\n", tmp->index);
         tmp = tmp->next;
     }
 }

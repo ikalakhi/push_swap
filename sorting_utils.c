@@ -19,17 +19,15 @@ void	erreur(void)
 
 int	stack_size(t_list *list)
 {
-	int	count;
+	size_t    i;
 
-	count = 0;
-	if (!list)
-		return (0);
-	while (list)
-	{
-		count++;
-		list = list->next;
-	}
-	return (count);
+    i = 0;
+    while (list)
+    {
+        list = list->next;
+        i++;
+    }
+    return (i);
 }
 
 char	*sort(char *arr, int size)
@@ -57,12 +55,12 @@ char	*sort(char *arr, int size)
 	return (arr);
 }
 
-void	up_rolling(t_list **stack, int min, int size, char s)
+void	up_rolling(t_list **stack, int pos, int size, char s)
 {
-	while (min < size)
+	while (pos < size)
 	{
 		rra_rrb(stack, s);
-		min++;
+		pos++;
 	}
 }
 

@@ -25,23 +25,15 @@ void	fill_stack_b(t_list **stack_a, t_list **stack_b, int size,\
 	int		b;
 
 	b = 0;
-	////printf("lol\n");
-	while (b <= to_be_pushed)
+	while (b < to_be_pushed)
 	{
-		//size = stack_size((*stack_b));
 		num = find_your_twin(stack_a, min, max);
-		// printf("--------------------------------\n");
-		// printf("min is %d\n", min);
-		// printf("in between is %d\n", mid);
-		// printf("max is %d\n", max);
-		// printf("--------------------------------\n");
-		if (num.index >= mid)
+		if (num.pos >= mid)
 		{
-			//printf("-----------------1------------------\n");
 			up_roll(stack_a, num.pos, size, 'a');
 			push_to_b(stack_a, stack_b, mid);
 		}
-		else if (num.index < mid)
+		else if (num.pos < mid)
 		{
 			down_roll(stack_a, num.pos, size, 'a');
 			push_to_b(stack_a, stack_b, mid);
@@ -59,24 +51,30 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	int		to_be_pushed;
 
 	size = ac;
-	while (size > 10)
+	printf("size is = %d\n", size);
+	while (size > 5)
 	{
-		size = stack_size(*stack_a);
+		//printf("------------------------80------------------------------\n");
 		min = min_stack(stack_a);
+		//printf("min is = %d\n", min);
 		to_be_pushed = (size - 5) / 3  + 1;
+		//printf("to_be_pushed is = %d\n", to_be_pushed);
 		max = (min + to_be_pushed ) - 1;
+		//printf("max is = %d\n", max);
 		mid = (min + max) / 2;
+		//printf("mid is = %d\n", mid);
 		fill_stack_b(stack_a, stack_b, size, min, max, mid, to_be_pushed);
-		printf("------------------------here-------------------------------\n");
+		size -= to_be_pushed;
+		//printf("------------------------here-------------------------------\n");
 	}
-	printf("------------------------80------------------------------\n");
-	sort_stack_5_to_10(stack_a, stack_b, size);
-	//printf("I am here");
-	//print_stack(stack_b);
+	size = stack_size((*stack_a));
+	// printf("stack_b\n");
+	// print_stack(stack_b);
+	sort_stack_5(stack_a, stack_b);
 	//fill_stack_a(stack_a, stack_b);
 }
 
-void	push_to_stack_a(t_list **stack_a, t_list **stack_b)
+void	fill_stack_a(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 	int	max;
