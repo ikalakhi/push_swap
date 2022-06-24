@@ -35,14 +35,16 @@ t_index	find_your_twin(t_list **stack, int min, int max);
 
 int		ft_atoi(char *str);
 int		ft_avlenth(char **av);
-int		deviding(int ac, int b);
 int		find_min(t_list **stack);
 int		stack_size(t_list *list);
+int		top_stack(t_list **stack);
 int		max_stack(t_list **stack);
 int		check_sorted(t_list *lst);
 int		min_stack(t_list **stack);
+int		intialize_last(t_list **stack);
 int		check_numbers(char **av, int ac);
 int		check_if_sorted(t_list **stack_a);
+int		find_twin_num(t_list **stack_b, int top_a);
 int		find_index(int data, char *array, int size);
 int		creat_stack(int ac, char **av, t_list **stack_a);
 
@@ -65,6 +67,7 @@ void	intialize(t_list **stack_a, t_list **stack_b);
 void	sort_stack_4(t_list **stack, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b, char s);
 void	pb(t_list **stack_a, t_list **stack_b, char a);
+void	down_rolling(t_list **stack, int size, char s);
 void	sort_stack_4(t_list **stack_a, t_list **stack_b);
 void	sort_stack_5(t_list **stack_a, t_list **stack_b);
 void	sort_stack_6(t_list **stack_a, t_list **stack_b);
@@ -77,9 +80,9 @@ void	check_stack_a(t_list **stack_a, t_list **stack_b);
 void	up_roll(t_list **stack, int pos, int size, char s);
 void	down_roll(t_list **stack, int pos, int min, char s);
 void	up_rolling(t_list **stack, int min, int size, char s);
-void	down_rolling(t_list **stack, int size, char s);
 void	check_size(t_list **stack_a, t_list **stack_b, int size);
 void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac);
+void    roll(t_list **stack_a, t_list **stack_b, int pos, int size);
 void	sort_stack_5_to_10(t_list **stack_a, t_list **stack_b, int ac);
 void	fill_stack_b(t_list **stack_a, t_list **stack_b, int size, int min, int max, int mid, int to_be_pushed);
 

@@ -71,28 +71,39 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	// printf("stack_b\n");
 	// print_stack(stack_b);
 	sort_stack_5(stack_a, stack_b);
-	//fill_stack_a(stack_a, stack_b);
+	fill_stack_a(stack_a, stack_b);
 }
 
 void	fill_stack_a(t_list **stack_a, t_list **stack_b)
 {
+	int	top_b;
+	int	top_a;
 	int	size;
-	int	max;
+	int	pos;
 
-	size = stack_size((*stack_b));
-	while (size > 0)
+	pos = 0;
+	size = stack_size(stack_b);
+	while (top_a != 0)
 	{
-		max = max_stack(stack_b);
-		if ((max * 2) >= size)
-		{
-			up_rolling(stack_b, max, size, 'b');
+		top_a = top_stack(stack_a);
+		top_b = top_stack(stack_b);
+		if ((top_a - 1) == top_b)
 			pa(stack_a, stack_b, 'a');
-		}
-		else if ((max * 2) < size)
+		else
 		{
-			down_rolling(stack_b, max, 'b');
-			pa(stack_a, stack_b, 'a');
+			intialize_last(stack_a);
+			if ((top_a - 1) > top_b && top_b > -1)
+			{
+				p(stack_a, stack_b, 'a');
+				r(stack_a, 'a');
+			}
+			else if ((top_a - 1) > top_b && top_b < bring_last(stack_a))
+			{
+				pos = find_index(stack_b, top_a);
+				roll(stack_a, stack_b, pos, size);
+			}
+			else if (pos == -2)
+				rra_rrb(stack_a, 'a');
 		}
-		size--;
 	}
 }

@@ -11,15 +11,6 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int deviding(int ac, int b)
-{
-	if (ac > 100)
-		b = 8;
-	else if (ac <= 100)
-		b = 4;
-	return (b);
-}
-
 void	up_roll(t_list **stack, int pos, int size, char s)
 {
 	int a;
