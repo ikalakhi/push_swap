@@ -27,6 +27,7 @@ int find_twin_num(t_list **stack_b, int top_a)
             j = i;
             return(j);
         }
+        i++;
         temp = temp->next;
     }
     return(j);
@@ -34,16 +35,16 @@ int find_twin_num(t_list **stack_b, int top_a)
 
 void    roll(t_list **stack_a, t_list **stack_b, int pos, int size)
 {
-    pos = find_twin_num(stack_b, top_a);
+    printf("wach a saiide\n");
     if (pos >= size / 2)
 	{
-		up_rolling(stack_b);
-		p(stack_a, stack_b, pos, size, 'a');
+		up_rolling(stack_b, pos, size, 'b');
+		pa(stack_a, stack_b, 'a');
 	}
 	else if (pos < size / 2)
 	{
-		down_rolling(stack_b);
-		p(stack_a, stack_b, size, 'a');
+		down_rolling(stack_b, size, 'b');
+		pa(stack_a, stack_b, 'a');
 	}
 }
 
@@ -55,21 +56,26 @@ int	top_stack(t_list **stack)
 	return (top);
 }
 
-t_list  bring_last(t_list **stack)
+int bring_last(t_list **stack)
 {
     while ((*stack))
     {
+        if ((*stack)->next == NULL)
+            return((*stack)->index);
         (*stack) = (*stack)->next;
     }
-    return((*stack)->index);
+    return(-1);
 }
 
 void    intialize_last(t_list **stack)
 {
-    while((*stack_a))
+    t_list *temp;
+
+    temp = (*stack);
+    while(temp)
 	{
-		if ((*stack_a)->next == NULL)
-			(*stack_a)->index = -1;
-		(*stack_a) = (*stack_a)->next;
+		if (temp->next == NULL)
+			temp->index = -1;
+		temp = temp->next;
 	}
 }

@@ -11,21 +11,21 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	find_index(int data, char *array, int size)
+int	find_index(int data, int *array, int size)
 {
 	int	i;
 
-	i = 0;
-	while (i < size)
+	i = size - 1;
+	while (i >= 0)
 	{
 		if (array[i] == data)
 			return (i);
-		i++;
+		i--;
 	}
 	return (i);
 }
 
-void	put_index(t_list **stack, char *s, int size)
+t_list 	*put_index(t_list **stack, int *s, int size)
 {
 	t_list	*p;
 	int		i;
@@ -37,16 +37,17 @@ void	put_index(t_list **stack, char *s, int size)
 		p->index = find_index(p->num, s, size);
 		p = p->next;
 	}
+	return (*stack);
 }
 
-char	*swap_sort_arry(t_list **stack, char *s, int size)
+t_list *swap_sort_arry(t_list **stack, int *s, int size)
 {
 	t_list	*temp;
 	int		i;
 
 	i = 0;
 	temp = (*stack);
-	s = malloc (sizeof(int) * size);
+	s = malloc (sizeof(int) * (size));
 	if (!s)
 		return (0);
 	while (temp)
@@ -56,27 +57,32 @@ char	*swap_sort_arry(t_list **stack, char *s, int size)
 		i++;
 	}
 	s = sort(s, size);
-	put_index(stack, s, i);
-	return (s);
+	return(put_index(stack, s, i));
 }
 
 int	min_stack(t_list **stack)
 {
-    int        i;
-    int        min;
-    t_list    *p;
+	
+	int		i;
+	int		j;
+	int		box;
+	t_list	*tmp;
 
-    p = (*stack);
-    i = 0;
-    min = find_min(stack);
-    while (p)
-    {
-        if (p->index == min)
-            return (i);
-        p = p->next;
-        i++;
-    }
-    return (i);
+	tmp = (*stack);
+	i = 0;
+	j = 0;
+	box = tmp->num;
+	while (tmp)
+	{
+		if (box > tmp->num)
+		{
+			j = i;
+			box = tmp->num;
+		}
+		i++;
+		tmp = tmp->next;
+	}
+	return (j);
 }
 
 int    find_min(t_list **stack)
@@ -101,14 +107,11 @@ void	intialize(t_list **stack_a, t_list **stack_b)
 	stack_b = NULL;
 }
 
-void    print_stack(t_list **stack)
+void    print_stack(t_list *stack)
 {
-    t_list *tmp;
-    tmp = (*stack);
-
-    while(tmp)
+    while(stack)
     {
-        printf("[_%d_]\n", tmp->index);
-        tmp = tmp->next;
+        printf("[_ind %d] [data is %d]\n",  stack->index, stack->num);
+        stack = stack->next;
     }
 }

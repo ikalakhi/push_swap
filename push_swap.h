@@ -31,25 +31,25 @@ typedef struct s_index
 
 t_list	*ft_lstnew(int number);
 t_list	*ft_lstlast(t_list *lst);
-t_index	find_your_twin(t_list **stack, int min, int max);
+t_list	*put_index(t_list **stack,int *s, int size);
+t_list	*swap_sort_arry(t_list **stack, int *s, int size);
 
 int		ft_atoi(char *str);
 int		ft_avlenth(char **av);
+int		*sort(int *s, int size);
 int		find_min(t_list **stack);
 int		stack_size(t_list *list);
 int		top_stack(t_list **stack);
 int		max_stack(t_list **stack);
 int		check_sorted(t_list *lst);
 int		min_stack(t_list **stack);
-int		intialize_last(t_list **stack);
+int		bring_last(t_list **stack);
 int		check_numbers(char **av, int ac);
 int		check_if_sorted(t_list **stack_a);
 int		find_twin_num(t_list **stack_b, int top_a);
-int		find_index(int data, char *array, int size);
+int		find_index(int data, int *array, int size);
+int		find_your_twin(t_list **stack, int min, int max);
 int		creat_stack(int ac, char **av, t_list **stack_a);
-
-char	*sort(char *s, int size);
-char	*swap_sort_arry(t_list **stack, char *s, int size);
 
 void	erreur(void);
 void	rr(t_list **lst);
@@ -57,12 +57,12 @@ void	rolling(t_list **stack);
 void	s(t_list **lst, char s);
 void	r(t_list **lst, char s);
 void	sort_stack_2(t_list **stack);
-void	print_stack(t_list **stack);
+void	print_stack(t_list *stack);
 void	sort_stack_3(t_list **stack);
 void	rra_rrb(t_list **lst, char s);
+void	intialize_last(t_list **stack);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-void	put_index(t_list **stack, char *s, int size);
 void	intialize(t_list **stack_a, t_list **stack_b);
 void	sort_stack_4(t_list **stack, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b, char s);

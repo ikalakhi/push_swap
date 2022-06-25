@@ -14,9 +14,9 @@
 void	up_roll(t_list **stack, int pos, int size, char s)
 {
 	int a;
-
+	(void)size;
 	a = 0;
-	while (a <= (size - pos))
+	while (a < pos)
 	{
 		rra_rrb(stack, s);
 		a++;
@@ -26,9 +26,9 @@ void	up_roll(t_list **stack, int pos, int size, char s)
 void	down_roll(t_list **stack, int pos, int size, char s)
 {
 	int a;
-
+	(void)size;
 	a = 0;
-	while (a < (size - pos))
+	while (a < pos)
 	{
 		r(stack, s);
 		a++;
@@ -59,26 +59,19 @@ int max_stack(t_list **stack)
 	return (j);
 }
 
-t_index	find_your_twin(t_list **stack, int min, int max)
+int	find_your_twin(t_list **stack, int min, int max)
 {
 	t_list	*temp;
-	t_index index;
 	int		i;
 
-	index.pos = -1;
-	index.index = -1;
 	i = 0;
 	temp = (*stack);
 	while (temp)
 	{
 		if (min <= temp->index  && temp->index <= max)
-		{
-			index.pos = i;
-			index.index = temp ->index;
-			break;
-		}
+			return(i);
 		i++;
 		temp = temp->next;
 	}
-	return(index);
+	return(-1);
 }

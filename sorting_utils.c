@@ -30,29 +30,31 @@ int	stack_size(t_list *list)
     return (i);
 }
 
-char	*sort(char *arr, int size)
+int	*sort(int *arr, int size)
 {
-	int	i;
-	int	j;
-	int	temp;
+	int    i;
+    int    j;
+    int    var;
 
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (arr[i] > arr[j])
-			{
-				temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
+    i = 0;
+    j = 0;
+    while (i < size - 1)
+    {
+        j = i + 1;
+        while (j < size)
+        {
+            if (arr[i] > arr[j])
+            {
+                var = arr[i];
+                arr[i] = arr[j];
+                arr[j] = var;
+            }
 			j++;
-		}
-		i++;
-	}
-	return (arr);
+        }
+    	i++;
+    }
+	i = 0;
+    return (arr);
 }
 
 void	up_rolling(t_list **stack, int pos, int size, char s)

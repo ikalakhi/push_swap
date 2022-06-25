@@ -26,21 +26,21 @@ void	sort_stack_3(t_list **stack)
 		s(stack, 'a');
 		r(stack, 'a');
 	}
-	else if ((*stack)->num > (*stack)->next->num && \
+	if ((*stack)->num > (*stack)->next->num && \
 			(*stack)->next->num > (*stack)->next->next->num)
 	{
 		r(stack, 'a');
 		s(stack, 'a');
 	}
-	else if ((*stack)->num > (*stack)->next->num && \
+	if ((*stack)->num > (*stack)->next->num && \
 			(*stack)->num < (*stack)->next->next->num && \
 			(*stack)->next->num < (*stack)->next->next->num)
 		s(stack, 'a');
-	else if ((*stack)->num < (*stack)->next->num && \
+	if ((*stack)->num < (*stack)->next->num && \
 			(*stack)->next->num > (*stack)->next->next->num && \
 			(*stack)->num > (*stack)->next->next->num)
 		r(stack, 'a');
-	else if ((*stack)->num > (*stack)->next->num && \
+	if ((*stack)->num > (*stack)->next->num && \
 			(*stack)->num > (*stack)->next->next->num && \
 			(*stack)->next->num < (*stack)->next->next->num)
 		r(stack, 'a');
@@ -52,8 +52,8 @@ void	sort_stack_4(t_list **stack_a, t_list **stack_b)
 	int	pos;
 	int	size;
 
-	size = stack_size((*stack_a));
 	pos = min_stack(stack_a);
+	size = stack_size((*stack_a));
 	b = 1;
 	while (b)
 	{
@@ -63,7 +63,7 @@ void	sort_stack_4(t_list **stack_a, t_list **stack_b)
 			pb(stack_a, stack_b, 'b');
 			sort_stack_3(stack_a);
 		}
-		else if (pos < size / 2)
+		else
 		{
 			down_rolling(stack_a, size, 'a');
 			pb(stack_a, stack_b, 'b');
@@ -83,8 +83,6 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 	b = 1;
 	pos = min_stack(stack_a);
 	size = stack_size((*stack_a));
-	printf("stack_a\n");
-	print_stack(stack_a);
 	while (b)
 	{
 		if (pos >= size / 2)
@@ -93,7 +91,7 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 			pb(stack_a, stack_b, 'b');
 			sort_stack_4(stack_a, stack_b);
 		}
-		else if (pos < size / 2)
+		else
 		{
 			down_rolling(stack_a, size, 'a');
 			pb(stack_a, stack_b, 'b');

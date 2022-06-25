@@ -24,6 +24,7 @@ int	creat_stack(int ac, char **av, t_list **stack_a)
 		new = ft_lstnew(num);
 		ft_lstadd_back(stack_a, new);
 	}
+	//while (stack_a)
 	return (i);
 }
 
@@ -31,19 +32,19 @@ int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	char	*s;
+	int	*s;
 	int		i;
 	int		j;
 
 	s = NULL;
 	intialize(&stack_a, &stack_b);
 	creat_stack(ac, av, &stack_a);
+	ac = ac -1;
 	i = check_numbers(av, ac);
 	j = check_if_sorted(&stack_a);
-	s = swap_sort_arry(&stack_a, s, ac);
+	stack_a = swap_sort_arry(&stack_a, s, ac);
 	if (ac < 2 || i == 0 || j == 1)
 		return (0);
-	ac = ac - 1;
 	if (i == 1)
 	{
 		if (ac == 2)
@@ -57,6 +58,8 @@ int	main(int ac, char **av)
 		else
 			sort_big_stack(&stack_a, &stack_b, ac);
 	}
+	// printf("stack is hello \n");
+	// print_stack(stack_a);
 	free (s);
 	return (0);
 }

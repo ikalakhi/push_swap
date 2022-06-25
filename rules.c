@@ -64,7 +64,7 @@ void	rra_rrb(t_list **lst, char s)
 	t_list	*t1;
 	t_list	*t2;
 
-	if (!lst || !(*lst))
+	if (!lst || !(*lst) || !(*lst)->next)
 		return ;
 	t1 = (*lst);
 	while (t1->next->next)

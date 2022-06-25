@@ -4,6 +4,8 @@
         "chrono": "c",
         "limits": "c",
         "random": "c",
-        "ratio": "c"
+        "ratio": "c",
+        "__tuple": "c",
+        "array": "c"
     }
 }
