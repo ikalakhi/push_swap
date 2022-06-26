@@ -59,20 +59,20 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	{
 
 		min = find_min((*stack_a));
-		printf("min is %d\n", min);
-		to_be_pushed = (size - 5) / 3  + 1;
+		//printf("min is %d\n", min);
+		to_be_pushed = (size - 5) / 4  + 1;
 		max = (min + to_be_pushed ) - 1;
 		mid = (min + max) / 2;
-		printf("max is : %d\n", max);
+		//printf("max is : %d\n", max);
 		fill_stack_b(stack_a, stack_b, size, min, max, mid, to_be_pushed);
 		size -= to_be_pushed;
 		j++;
 	}
 	size = stack_size((*stack_a));
-	printf("size is = %d\n", size);
+	//printf("size is = %d\n", size);
+	// printf("stack a is here \n");
+	// print_stack(*stack_a);
 	sort_stack_5(stack_a, stack_b);
-	printf("stack a is here \n");
-	print_stack(*stack_a);
 	fill_stack_a(stack_a, stack_b);
 	//exit(1);
 }
@@ -84,23 +84,23 @@ void	fill_stack_a(t_list **stack_a, t_list **stack_b)
 	int	size;
 	int	last_index;
 	int	pos;
-	int i = 0;
+	//int i = 0;
 
 	pos = 0;
 	last_index = 0;
 	top_a = 1;
 	intialize_last(stack_a);
-	while ((*stack_b) && i < 2)
+	while ((*stack_b))
 	{
 		last_index = bring_last(*stack_a);
 		size = stack_size((*stack_b));
 		top_a = (*stack_a)->index;
 		top_b = (*stack_b)->index;
-		if (is_there(top_a - 1, *stack_b))
+		if ((top_a - 1) == top_b)
+			pa(stack_a, stack_b, 'a');
+		else if (is_there(top_a - 1, *stack_b))
 		{
-			if (top_a - 1 == top_b)
-				pa(stack_a, stack_b, 'a');
-			else if (top_a - 1 > top_b && top_b > last_index)
+			if ((top_a - 1) > top_b && top_b > last_index)
 			{
 				pa(stack_a, stack_b, 'a');
 				r(stack_a, 'a');
@@ -112,16 +112,14 @@ void	fill_stack_a(t_list **stack_a, t_list **stack_b)
 			}
 		}
 		else
-		// 	rra_rrb(stack_a, 'a');
-		// printf("stack s is\n");
-		// print_stack(*stack_a);
-		i++;
+			rra_rrb(stack_a, 'a');
+		//i++;
 	}
-		exit(1);
-	// printf("stack s is\n");
-	// // print_stack(*stack_a);
+	// printf("stack a is\n");
+	// print_stack(*stack_a);
 	// printf("stack b is \n");
 	// print_stack(*stack_b);
-	while (!check_if_sorted(stack_a))
+		//exit(1);
+	while (!check_sorted((*stack_a)))
 		rra_rrb(stack_a, 'a');
 }

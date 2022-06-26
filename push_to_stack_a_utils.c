@@ -34,12 +34,12 @@ void    roll(t_list **stack_a, t_list **stack_b, int pos, int size)
 {
     if (pos >= size / 2)
 	{
-		up_rolling(stack_b, pos, size, 'b');
+		up_roll(stack_b, pos, size, 'b');
 		pa(stack_a, stack_b, 'a');
 	}
 	else if (pos < size / 2)
 	{
-		down_rolling(stack_b, size, 'b');
+		down_roll(stack_b, pos, size, 'b');
 		pa(stack_a, stack_b, 'a');
 	}
 }

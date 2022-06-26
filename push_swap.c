@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 	creat_stack(ac, av, &stack_a);
 	ac = ac -1;
 	i = check_numbers(av, ac);
-	j = check_if_sorted(&stack_a);
+	j = check_sorted(stack_a);
 	stack_a = swap_sort_arry(&stack_a, s, ac);
 	// printf("stack a is \n");
 	// print_stack(stack_a);
@@ -60,8 +60,8 @@ int	main(int ac, char **av)
 		else
 			sort_big_stack(&stack_a, &stack_b, ac);
 	}
-	printf("stack in last \n");
-	print_stack(stack_a);
+	//printf("stack in last \n");
+	//print_stack(stack_a);
 	free (s);
 	return (0);
 }
