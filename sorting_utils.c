@@ -14,7 +14,7 @@
 void	erreur(void)
 {
 	write (2, "Error\n", 6);
-	exit (1);
+	exit (0);
 }
 
 int	stack_size(t_list *list)

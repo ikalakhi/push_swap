@@ -51,24 +51,3 @@ int	check_sorted(t_list *lst)
 	}
 	return (1);
 }
-
-// int	check_if_sorted(t_list **stack_a)
-// {
-// 	t_list	*tmp1;
-// 	t_list	*tmp2;
-
-// 	tmp1 = (*stack_a);
-// 	tmp2 = (*stack_a)->next;
-// 	while (tmp1)
-// 	{
-// 		while (tmp2)
-// 		{
-// 			if (tmp1->num > tmp2->num)
-// 				return (0);
-// 			tmp2 = tmp2->next;
-// 		}
-// 		tmp2 = tmp1->next;
-// 		tmp1 = tmp1->next;
-// 	}
-// 	return (1);
-// }

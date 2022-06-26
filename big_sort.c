@@ -59,22 +59,16 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	{
 
 		min = find_min((*stack_a));
-		//printf("min is %d\n", min);
 		to_be_pushed = (size - 5) / 4  + 1;
 		max = (min + to_be_pushed ) - 1;
 		mid = (min + max) / 2;
-		//printf("max is : %d\n", max);
 		fill_stack_b(stack_a, stack_b, size, min, max, mid, to_be_pushed);
 		size -= to_be_pushed;
 		j++;
 	}
 	size = stack_size((*stack_a));
-	//printf("size is = %d\n", size);
-	// printf("stack a is here \n");
-	// print_stack(*stack_a);
 	sort_stack_5(stack_a, stack_b);
 	fill_stack_a(stack_a, stack_b);
-	//exit(1);
 }
 
 void	fill_stack_a(t_list **stack_a, t_list **stack_b)
@@ -84,7 +78,6 @@ void	fill_stack_a(t_list **stack_a, t_list **stack_b)
 	int	size;
 	int	last_index;
 	int	pos;
-	//int i = 0;
 
 	pos = 0;
 	last_index = 0;
@@ -113,13 +106,7 @@ void	fill_stack_a(t_list **stack_a, t_list **stack_b)
 		}
 		else
 			rra_rrb(stack_a, 'a');
-		//i++;
 	}
-	// printf("stack a is\n");
-	// print_stack(*stack_a);
-	// printf("stack b is \n");
-	// print_stack(*stack_b);
-		//exit(1);
 	while (!check_sorted((*stack_a)))
 		rra_rrb(stack_a, 'a');
 }
