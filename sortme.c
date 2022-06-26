@@ -87,13 +87,13 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 	{
 		if (pos >= size / 2)
 		{
-			up_rolling(stack_a, pos, size, 'a');
+			up_roll(stack_a, pos, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_4(stack_a, stack_b);
 		}
 		else
 		{
-			down_rolling(stack_a, size, 'a');
+			down_roll(stack_a, pos, size, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_4(stack_a, stack_b);
 		}

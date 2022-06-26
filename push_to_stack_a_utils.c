@@ -23,10 +23,7 @@ int find_twin_num(t_list **stack_b, int top_a)
     while (temp)
     {
         if (temp->index == top_a)
-        {
-            j = i;
-            return(j);
-        }
+            return(i);
         i++;
         temp = temp->next;
     }
@@ -35,7 +32,6 @@ int find_twin_num(t_list **stack_b, int top_a)
 
 void    roll(t_list **stack_a, t_list **stack_b, int pos, int size)
 {
-    printf("wach a saiide\n");
     if (pos >= size / 2)
 	{
 		up_rolling(stack_b, pos, size, 'b');
@@ -56,13 +52,13 @@ int	top_stack(t_list **stack)
 	return (top);
 }
 
-int bring_last(t_list **stack)
+int bring_last(t_list *stack)
 {
-    while ((*stack))
+    while (stack)
     {
-        if ((*stack)->next == NULL)
-            return((*stack)->index);
-        (*stack) = (*stack)->next;
+        if (stack->next == NULL)
+            return(stack->index);
+        stack = stack->next;
     }
     return(-1);
 }
@@ -75,7 +71,21 @@ void    intialize_last(t_list **stack)
     while(temp)
 	{
 		if (temp->next == NULL)
+        {
 			temp->index = -1;
+            break;
+        }
 		temp = temp->next;
 	}
+}
+
+int is_there(int index, t_list *stack_a)
+{
+    while (stack_a)
+    {
+        if (stack_a->index == index)
+            return (1);
+        stack_a = stack_a->next;
+    }
+    return (0);
 }

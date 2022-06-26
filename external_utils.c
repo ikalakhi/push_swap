@@ -71,13 +71,13 @@ int	min_stack(t_list **stack)
 	tmp = (*stack);
 	i = 0;
 	j = 0;
-	box = tmp->num;
+	box = tmp->index;
 	while (tmp)
 	{
-		if (box > tmp->num)
+		if (box > tmp->index)
 		{
 			j = i;
-			box = tmp->num;
+			box = tmp->index;
 		}
 		i++;
 		tmp = tmp->next;
@@ -85,12 +85,12 @@ int	min_stack(t_list **stack)
 	return (j);
 }
 
-int    find_min(t_list **stack)
+int    find_min(t_list *stack)
 {
     int        min;
     t_list    *p;
 
-    p = (*stack);
+    p = stack;
     min = p->index;
     while (p)
     {

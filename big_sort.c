@@ -25,10 +25,10 @@ void	fill_stack_b(t_list **stack_a, t_list **stack_b, int size,\
 	int	b;
 
 	b = 0;
+	int j = 0;
 	while (b < to_be_pushed)
 	{
-		num = find_your_twin(stack_a, min, max);
-		printf("num is %d\n", num);
+		num = find_your_twin((*stack_a), min, max);
 		if (num >= size / 2)
 		{
 			up_roll(stack_a, num, size, 'a');
@@ -39,7 +39,9 @@ void	fill_stack_b(t_list **stack_a, t_list **stack_b, int size,\
 			down_roll(stack_a, num, size, 'a');
 			push_to_b(stack_a, stack_b, mid);
 		}
+		size--;
 		b++;
+		j++;
 	}
 }
 
@@ -52,23 +54,27 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac)
 	int		to_be_pushed;
 
 	size = ac;
+	int j = 0;
 	while (size > 5)
 	{
-		min = find_min(stack_a);
+
+		min = find_min((*stack_a));
+		printf("min is %d\n", min);
 		to_be_pushed = (size - 5) / 3  + 1;
 		max = (min + to_be_pushed ) - 1;
 		mid = (min + max) / 2;
-		printf("min = %d tobe = %d max %d mid %d\n", min, to_be_pushed, max, mid);
+		printf("max is : %d\n", max);
 		fill_stack_b(stack_a, stack_b, size, min, max, mid, to_be_pushed);
 		size -= to_be_pushed;
+		j++;
 	}
-	printf("stack b is \n");
-	print_stack(*stack_b);
 	size = stack_size((*stack_a));
+	printf("size is = %d\n", size);
 	sort_stack_5(stack_a, stack_b);
-	printf("stack is hello \n");
+	printf("stack a is here \n");
 	print_stack(*stack_a);
 	fill_stack_a(stack_a, stack_b);
+	//exit(1);
 }
 
 void	fill_stack_a(t_list **stack_a, t_list **stack_b)
@@ -76,32 +82,46 @@ void	fill_stack_a(t_list **stack_a, t_list **stack_b)
 	int	top_b;
 	int	top_a;
 	int	size;
+	int	last_index;
 	int	pos;
+	int i = 0;
 
 	pos = 0;
+	last_index = 0;
 	top_a = 1;
 	intialize_last(stack_a);
-	while ((*stack_b))
+	while ((*stack_b) && i < 2)
 	{
-		printf("top a : %d\n", top_a);
+		last_index = bring_last(*stack_a);
 		size = stack_size((*stack_b));
 		top_a = (*stack_a)->index;
 		top_b = (*stack_b)->index;
-		if (top_a - 1 == top_b)
+		if (is_there(top_a - 1, *stack_b))
 		{
-			pa(stack_a, stack_b, 'a');
-			printf("rah pushite\n");
-		}
-		else if (top_a > top_b && top_b > bring_last(stack_a))
-		{
-			pos = find_twin_num(stack_b, top_a);
-			if (pos == -2)
-				rra_rrb(stack_a, 'a');
+			if (top_a - 1 == top_b)
+				pa(stack_a, stack_b, 'a');
+			else if (top_a - 1 > top_b && top_b > last_index)
+			{
+				pa(stack_a, stack_b, 'a');
+				r(stack_a, 'a');
+			}
 			else
+			{
+				pos = find_twin_num(stack_b, top_a - 1);
 				roll(stack_a, stack_b, pos, size);
+			}
 		}
-		else if (top_a > top_b && top_b < bring_last(stack_a))
-			roll(stack_a, stack_b, pos, size);
-		(*stack_b) = (*stack_b)->next;
+		else
+		// 	rra_rrb(stack_a, 'a');
+		// printf("stack s is\n");
+		// print_stack(*stack_a);
+		i++;
 	}
+		exit(1);
+	// printf("stack s is\n");
+	// // print_stack(*stack_a);
+	// printf("stack b is \n");
+	// print_stack(*stack_b);
+	while (!check_if_sorted(stack_a))
+		rra_rrb(stack_a, 'a');
 }

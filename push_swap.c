@@ -43,6 +43,8 @@ int	main(int ac, char **av)
 	i = check_numbers(av, ac);
 	j = check_if_sorted(&stack_a);
 	stack_a = swap_sort_arry(&stack_a, s, ac);
+	// printf("stack a is \n");
+	// print_stack(stack_a);
 	if (ac < 2 || i == 0 || j == 1)
 		return (0);
 	if (i == 1)
@@ -58,8 +60,8 @@ int	main(int ac, char **av)
 		else
 			sort_big_stack(&stack_a, &stack_b, ac);
 	}
-	// printf("stack is hello \n");
-	// print_stack(stack_a);
+	printf("stack in last \n");
+	print_stack(stack_a);
 	free (s);
 	return (0);
 }
