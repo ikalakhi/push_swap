@@ -25,9 +25,7 @@ int	check_numbers(char **av, int ac)
             if (av[i][j] == '+' || av[i][j] == '-')
                 j++;
 			else if (av[i][j] < '0' || av[i][j] > '9')
-			{
 				return (0);
-			}
 			j++;
 		}
 		j = 0;

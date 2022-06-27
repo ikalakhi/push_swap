@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 23:36:39 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/05/24 18:34:24 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:24:47 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -48,15 +48,6 @@ void	r(t_list **lst, char s)
 		write(1, "ra\n", 3);
 	else if (s == 'b')
 		write(1, "rb\n", 3);
-}
-
-void	rr(t_list **lst)
-{
-	if (!lst || !(*lst) || !(*lst)->next)
-		return ;
-	r(&(*lst), 'a');
-	r(&(*lst), 'b');
-	write(1, "rr\n", 3);
 }
 
 void	rra_rrb(t_list **lst, char s)

@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 23:17:57 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/05/24 18:23:34 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:23:20 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -27,11 +27,25 @@ int	creat_stack(int ac, char **av, t_list **stack_a)
 	return (i);
 }
 
+void	ac_size(t_list **stack_a, t_list **stack_b, int ac)
+{
+	if (ac == 2)
+		sort_stack_2(stack_a);
+	else if (ac == 3)
+		sort_stack_3(stack_a);
+	else if (ac == 4)
+		sort_stack_4(stack_a, stack_b);
+	else if (ac == 5)
+		sort_stack_5(stack_a, stack_b);
+	else
+		sort_big_stack(stack_a, stack_b, ac);
+}
+
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int	*s;
+	int		*s;
 	int		i;
 	int		j;
 
@@ -44,21 +58,7 @@ int	main(int ac, char **av)
 	stack_a = swap_sort_arry(&stack_a, s, ac);
 	if (ac == 1 || i == 0 || j == 1)
 		erreur();
-	if (i == 1)
-	{
-		if (ac == 2)
-			sort_stack_2(&stack_a);
-		else if (ac == 3)
-			sort_stack_3(&stack_a);
-		else if (ac == 4)
-			sort_stack_4(&stack_a, &stack_b);
-		else if (ac == 5)
-			sort_stack_5(&stack_a, &stack_b);
-		else
-			sort_big_stack(&stack_a, &stack_b, ac);
-	}
-	while(1)
-	free (s);
+	else if (i == 1)
+		ac_size(&stack_a, &stack_b, ac);
 	return (0);
 }
- 

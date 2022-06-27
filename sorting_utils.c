@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 21:25:42 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/05/24 18:03:19 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:30:39 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -19,42 +19,41 @@ void	erreur(void)
 
 int	stack_size(t_list *list)
 {
-	size_t    i;
+	size_t	i;
 
-    i = 0;
-    while (list)
-    {
-        list = list->next;
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (list)
+	{
+		list = list->next;
+		i++;
+	}
+	return (i);
 }
 
 int	*sort(int *arr, int size)
 {
-	int    i;
-    int    j;
-    int    var;
+	int	i;
+	int	j;
+	int	var;
 
-    i = 0;
-    j = 0;
-    while (i < size - 1)
-    {
-        j = i + 1;
-        while (j < size)
-        {
-            if (arr[i] > arr[j])
-            {
-                var = arr[i];
-                arr[i] = arr[j];
-                arr[j] = var;
-            }
-			j++;
-        }
-    	i++;
-    }
 	i = 0;
-    return (arr);
+	j = 0;
+	while (i < size - 1)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (arr[i] > arr[j])
+			{
+				var = arr[i];
+				arr[i] = arr[j];
+				arr[j] = var;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (arr);
 }
 
 void	up_rolling(t_list **stack, int pos, int size, char s)

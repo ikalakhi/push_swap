@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 16:01:39 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/05/24 18:14:02 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/06/27 15:52:12 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -25,7 +25,7 @@ int	find_index(int data, int *array, int size)
 	return (i);
 }
 
-t_list 	*put_index(t_list **stack, int *s, int size)
+t_list	*put_index(t_list **stack, int *s, int size)
 {
 	t_list	*p;
 	int		i;
@@ -37,10 +37,11 @@ t_list 	*put_index(t_list **stack, int *s, int size)
 		p->index = find_index(p->num, s, size);
 		p = p->next;
 	}
+	free(s);
 	return (*stack);
 }
 
-t_list *swap_sort_arry(t_list **stack, int *s, int size)
+t_list	*swap_sort_arry(t_list **stack, int *s, int size)
 {
 	t_list	*temp;
 	int		i;
@@ -57,12 +58,11 @@ t_list *swap_sort_arry(t_list **stack, int *s, int size)
 		i++;
 	}
 	s = sort(s, size);
-	return(put_index(stack, s, i));
+	return (put_index(stack, s, i));
 }
 
 int	min_stack(t_list **stack)
 {
-	
 	int		i;
 	int		j;
 	int		box;
@@ -85,33 +85,8 @@ int	min_stack(t_list **stack)
 	return (j);
 }
 
-int    find_min(t_list *stack)
-{
-    int        min;
-    t_list    *p;
-
-    p = stack;
-    min = p->index;
-    while (p)
-    {
-        if (min > p->index)
-            min = p->index;
-        p = p->next;
-    }
-    return (min);
-}
-
 void	intialize(t_list **stack_a, t_list **stack_b)
 {
 	stack_a = NULL;
 	stack_b = NULL;
-}
-
-void    print_stack(t_list *stack)
-{
-    while(stack)
-    {
-        printf("[_ind %d] [data is %d]\n",  stack->index, stack->num);
-        stack = stack->next;
-    }
 }

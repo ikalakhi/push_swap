@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 23:18:09 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/05/24 18:29:16 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/06/27 13:48:11 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -23,15 +23,18 @@ typedef struct node
 	struct node	*next;
 }	t_list;
 
-typedef struct s_index
+typedef struct s_sort
 {
-	int pos;
-	int index;
-}		t_index;
+	int	min;
+	int	size;
+	int	max;
+	int	mid;
+	int	to_be_pushed;
+}		t_sort;
 
 t_list	*ft_lstnew(int number);
 t_list	*ft_lstlast(t_list *lst);
-t_list	*put_index(t_list **stack,int *s, int size);
+t_list	*put_index(t_list **stack, int *s, int size);
 t_list	*swap_sort_arry(t_list **stack, int *s, int size);
 
 int		ft_atoi(char *str);
@@ -72,19 +75,20 @@ void	down_rolling(t_list **stack, int size, char s);
 void	sort_stack_4(t_list **stack_a, t_list **stack_b);
 void	sort_stack_5(t_list **stack_a, t_list **stack_b);
 void	sort_stack_6(t_list **stack_a, t_list **stack_b);
-void    sort_stack_7(t_list **stack_a, t_list **stack_b);
-void    sort_stack_8(t_list **stack_a, t_list **stack_b);
-void    sort_stack_9(t_list **stack_a, t_list **stack_b);
-void	fill_stack_a(t_list **stack_a, t_list **stack_b);
-void    sort_stack_10(t_list **stack_a, t_list **stack_b);
+void	sort_stack_7(t_list **stack_a, t_list **stack_b);
+void	sort_stack_8(t_list **stack_a, t_list **stack_b);
+void	sort_stack_9(t_list **stack_a, t_list **stack_b);
+void	sort_stack_10(t_list **stack_a, t_list **stack_b);
 void	check_stack_a(t_list **stack_a, t_list **stack_b);
 void	up_roll(t_list **stack, int pos, int size, char s);
-void	down_roll(t_list **stack, int pos, int min, char s);
+void	down_roll(t_list **stack, int pos, char s);
+void	fill_stack_a(t_list **stack_a, t_list **stack_b);
 void	up_rolling(t_list **stack, int min, int size, char s);
 void	check_size(t_list **stack_a, t_list **stack_b, int size);
 void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac);
-void    roll(t_list **stack_a, t_list **stack_b, int pos, int size);
+void	roll(t_list **stack_a, t_list **stack_b, int pos, int size);
 void	sort_stack_5_to_10(t_list **stack_a, t_list **stack_b, int ac);
-void	fill_stack_b(t_list **stack_a, t_list **stack_b, int size, int min, int max, int mid, int to_be_pushed);
+void	push_to_a(t_list **stack_a, t_list **stack_b, int top_a, int top_b);
+void	fill_stack_b(t_list **stack_a, t_list **stack_b, int size, t_sort sort);
 
 #endif

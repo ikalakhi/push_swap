@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 21:26:05 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/05/24 18:48:22 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:32:01 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -65,7 +65,7 @@ void	sort_stack_4(t_list **stack_a, t_list **stack_b)
 		}
 		else
 		{
-			down_roll(stack_a, pos, size, 'a');
+			down_roll(stack_a, pos, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_3(stack_a);
 		}
@@ -93,7 +93,7 @@ void	sort_stack_5(t_list **stack_a, t_list **stack_b)
 		}
 		else
 		{
-			down_roll(stack_a, pos, size, 'a');
+			down_roll(stack_a, pos, 'a');
 			pb(stack_a, stack_b, 'b');
 			sort_stack_4(stack_a, stack_b);
 		}
