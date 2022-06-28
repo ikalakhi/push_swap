@@ -32,11 +32,16 @@ typedef struct s_sort
 	int	to_be_pushed;
 }		t_sort;
 
+# define BUFFER_SIZE 2
+
 t_list	*ft_lstnew(int number);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*put_index(t_list **stack, int *s, int size);
-t_list	*swap_sort_arry(t_list **stack, int *s, int size);
+t_list	*swap_sort_check_arry(t_list **stack, int *s, int size);
 
+size_t	ft_strlen(char *s);
+
+int		ft_strchr(char *s, int c);
 int		ft_atoi(char *str);
 int		ft_avlenth(char **av);
 int		*sort(int *s, int size);
@@ -47,6 +52,7 @@ int		max_stack(t_list **stack);
 int		check_sorted(t_list *lst);
 int		min_stack(t_list **stack);
 int		bring_last(t_list *stack);
+int		check_dup(int *av, int ac);
 int		check_numbers(char **av, int ac);
 int		check_if_sorted(t_list **stack_a);
 int		is_there(int index, t_list *stack_a);
@@ -54,6 +60,10 @@ int		find_twin_num(t_list **stack_b, int top_a);
 int		find_index(int data, int *array, int size);
 int		find_your_twin(t_list *stack, int min, int max);
 int		creat_stack(int ac, char **av, t_list **stack_a);
+
+char	*get_next_line(0);
+char	*ft_strjoin(char *s1, char *s2);
+char	*help_join(char *save, char *s1, char *s2);
 
 void	erreur(void);
 void	rr(t_list **lst);

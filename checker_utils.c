@@ -1,4 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/28 20:46:11 by ikalakhi          #+#    #+#             */
+/*   Updated: 2022/06/28 20:46:14 by ikalakhi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "pushswap.h"
+
+size_t	ft_strlen(char *s)
+{
+	size_t	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 
 char	*help_join(char *save, char *s1, char *s2)
 {
@@ -39,4 +64,20 @@ char	*ft_strjoin(char *s1, char *s2)
 	save = help_join(save, s1, s2);
 	free(s1);
 	return (save);
+}
+
+int	ft_strchr(char *s, int c)
+{
+	int	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }

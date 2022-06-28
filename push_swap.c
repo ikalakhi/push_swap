@@ -52,13 +52,13 @@ int	main(int ac, char **av)
 	s = NULL;
 	intialize(&stack_a, &stack_b);
 	creat_stack(ac, av, &stack_a);
-	ac = ac -1;
-	i = check_numbers(av, ac);
 	j = check_sorted(stack_a);
-	stack_a = swap_sort_arry(&stack_a, s, ac);
-	if (ac == 1 || i == 0 || j == 1)
+	i = check_numbers(av, ac);
+	ac = ac -1;
+	if (i == 0)
 		erreur();
-	else if (i == 1)
+	stack_a = swap_sort_check_arry(&stack_a, s, ac);
+	if (ac > 1 && j == 0)
 		ac_size(&stack_a, &stack_b, ac);
 	return (0);
 }

@@ -1,20 +1,32 @@
-#include "pushswap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/27 17:07:19 by ikalakhi          #+#    #+#             */
+/*   Updated: 2022/06/27 17:07:22 by ikalakhi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "push_swap.h"
 
 int main (int ac, char **av)
 {
     t_list	*stack_a;
 	t_list	*stack_b;
 	int		i;
-	int		j;
+	char	*s;
 
 	intialize(&stack_a, &stack_b);
 	creat_stack(ac, av, &stack_a);
 	i = check_numbers(av, ac);
-	j = check_if_sorted(&stack_a);
-    if (ac < 2 || i == 0 || j == 1)
-        return (0);
-    if (i == 1)
+    if (i == 0)
+        erreur();
+	s = get_next_line();
+    if (ac > 1 && i == 1 && check_dup())
     {
-        
+		
     }
+	check_if_sorted(&stack_a);
 }

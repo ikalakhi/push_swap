@@ -18,7 +18,7 @@ int	check_numbers(char **av, int ac)
 
 	i = 1;
 	j = 0;
-	while (av[i] && i < (ac - 1))
+	while (av[i] && i < ac)
 	{
 		while (av[i][j])
 		{
@@ -29,6 +29,26 @@ int	check_numbers(char **av, int ac)
 			j++;
 		}
 		j = 0;
+		i++;
+	}
+	return (1);
+}
+
+int	check_dup(int *av, int ac)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < ac)
+	{
+		j = i + 1;
+		while (j < ac)
+		{
+			if (av[i] == av[j])
+				erreur();
+			j++;
+		}
 		i++;
 	}
 	return (1);
