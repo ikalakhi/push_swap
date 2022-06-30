@@ -4,7 +4,7 @@ void    print_stack(t_list *stack)
 {
     while(stack)
     {
-        printf("[_ind %d] [data is %d]\n",  stack->index, stack->num);
+        printf("[data is %d]\n",  stack->num);
         stack = stack->next;
     }
 }

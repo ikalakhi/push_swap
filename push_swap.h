@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-
+# include <string.h>
 typedef struct node
 {
 	int			index;
@@ -60,8 +60,9 @@ int		find_twin_num(t_list **stack_b, int top_a);
 int		find_index(int data, int *array, int size);
 int		find_your_twin(t_list *stack, int min, int max);
 int		creat_stack(int ac, char **av, t_list **stack_a);
+int		ft_strncmp(char *s1, char *s2, size_t n);
 
-char	*get_next_line(0);
+char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 char	*help_join(char *save, char *s1, char *s2);
 
@@ -76,11 +77,13 @@ void	sort_stack_3(t_list **stack);
 void	rra_rrb(t_list **lst, char s);
 void	intialize_last(t_list **stack);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	down_roll(t_list **stack, int pos, char s);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	intialize(t_list **stack_a, t_list **stack_b);
 void	sort_stack_4(t_list **stack, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b, char s);
 void	pb(t_list **stack_a, t_list **stack_b, char a);
+void	fill_stack_a(t_list **stack_a, t_list **stack_b);
 void	down_rolling(t_list **stack, int size, char s);
 void	sort_stack_4(t_list **stack_a, t_list **stack_b);
 void	sort_stack_5(t_list **stack_a, t_list **stack_b);
@@ -91,9 +94,8 @@ void	sort_stack_9(t_list **stack_a, t_list **stack_b);
 void	sort_stack_10(t_list **stack_a, t_list **stack_b);
 void	check_stack_a(t_list **stack_a, t_list **stack_b);
 void	up_roll(t_list **stack, int pos, int size, char s);
-void	down_roll(t_list **stack, int pos, char s);
-void	fill_stack_a(t_list **stack_a, t_list **stack_b);
 void	up_rolling(t_list **stack, int min, int size, char s);
+void	check_moves(t_list **stack_a, t_list **stack_b, char *arr);
 void	check_size(t_list **stack_a, t_list **stack_b, int size);
 void	sort_big_stack(t_list **stack_a, t_list **stack_b, int ac);
 void	roll(t_list **stack_a, t_list **stack_b, int pos, int size);

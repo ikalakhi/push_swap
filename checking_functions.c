@@ -20,6 +20,8 @@ int	check_numbers(char **av, int ac)
 	j = 0;
 	while (av[i] && i < ac)
 	{
+		if (!av[i] || !av[i][0])
+			return (0);
 		while (av[i][j])
 		{
             if (av[i][j] == '+' || av[i][j] == '-')

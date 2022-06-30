@@ -104,7 +104,7 @@ char	*save_read(int fd, char *save, int rd)
 	return (save);
 }
 
-char	*get_next_line(0)
+char	*get_next_line(int fd)
 {
 	int			rd;
 	static char	*save;
