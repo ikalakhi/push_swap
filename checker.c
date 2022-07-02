@@ -33,6 +33,8 @@ void	check_moves(t_list **stack_a, t_list **stack_b, char *arr)
 		pa(stack_a, stack_b, 'z');
 	else if (ft_strncmp(arr, "pb\n", 3) == 0)
 		pb(stack_a, stack_b, 'z');
+	else if (ft_strncmp(arr, "rrr\n", 3) == 0)
+		rrr(stack_a, stack_b, 0);
 	else
 		erreur();
 }

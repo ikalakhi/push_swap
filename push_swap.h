@@ -64,7 +64,6 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*help_join(char *save, char *s1, char *s2);
 
 void	erreur(void);
-void	rr(t_list **lst);
 void	rolling(t_list **stack);
 void	s(t_list **lst, char s);
 void	r(t_list **lst, char s);
@@ -74,6 +73,7 @@ void	sort_stack_3(t_list **stack);
 void	rra_rrb(t_list **lst, char s);
 void	intialize_last(t_list **stack);
 void	check_numbers(char **av, int ac);
+void	rrr(t_list **stack_a, t_list **stack_b, int i);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	down_roll(t_list **stack, int pos, char s);
 void	ft_lstadd_front(t_list **lst, t_list *new);

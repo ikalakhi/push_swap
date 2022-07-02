@@ -81,3 +81,11 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
+
+void	rrr(t_list **stack_a, t_list **stack_b, int i)
+{
+	rra_rrb(stack_a, 'z');
+	rra_rrb(stack_b, 'z');
+	if (i == 1)
+		write(1, "rrr\n", 4);
+}
