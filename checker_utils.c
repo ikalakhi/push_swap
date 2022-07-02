@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 20:46:11 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/06/28 20:46:14 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/06/30 20:05:51 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -82,15 +82,14 @@ int	ft_strchr(char *s, int c)
 	return (0);
 }
 
-
-int ft_strncmp(char *s1, char *s2, size_t n)
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
-    size_t          l;
+	size_t	l;
 
-    if (n == 0 || !s1 || !s2)
-        return (0);
-    l = 0;
-    while (s1[l] != '\0' && s2[l] != '\0' && s1[l] == s2[l] && (l < n - 1))
-        l++ ;
-    return (s1[l] - s2[l]);
+	if (n == 0 || !s1 || !s2)
+		return (0);
+	l = 0;
+	while (s1[l] != '\0' && s2[l] != '\0' && s1[l] == s2[l] && (l < n - 1))
+		l++ ;
+	return (s1[l] - s2[l]);
 }

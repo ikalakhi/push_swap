@@ -11,43 +11,46 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	check_numbers(char **av, int ac)
+void	check_numbers(char **av, int ac)
+{
+	int	j;
+
+	j = 0;
+	if (!check_dup(av, ac))
+		erreur();
+	while (ac > 0)
+	{
+		if (!av[ac] || !av[ac][0])
+			erreur();
+		while (av[ac][j])
+		{
+			if (av[ac][j] == '+' || av[ac][j] == '-')
+				j++;
+			if ((av[ac][j - 1] == '+' && av[ac][j] == '\0')
+			|| (av[ac][j - 1] == '-' && av[ac][j] == '\0'))
+				erreur();
+			else if (av[ac][j] < '0' || av[ac][j] > '9')
+				erreur();
+			j++;
+		}
+		j = 0;
+		ac--;
+	}
+}
+
+int	check_dup(char **av, int ac)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	j = 0;
-	while (av[i] && i < ac)
-	{
-		if (!av[i] || !av[i][0])
-			return (0);
-		while (av[i][j])
-		{
-            if (av[i][j] == '+' || av[i][j] == '-')
-                j++;
-			else if (av[i][j] < '0' || av[i][j] > '9')
-				return (0);
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	return (1);
-}
-
-int	check_dup(int *av, int ac)
-{
-	int	i;
-	int	j;
-
-	i = 0;
+	ac = ac + 1;
 	while (i < ac)
 	{
 		j = i + 1;
 		while (j < ac)
 		{
-			if (av[i] == av[j])
+			if (!ft_strcmp(av[i], av[j]))
 				erreur();
 			j++;
 		}
@@ -58,9 +61,6 @@ int	check_dup(int *av, int ac)
 
 int	check_sorted(t_list *lst)
 {
-	int	box;
-
-	box = 0;
 	if (lst == NULL)
 		return (0);
 	while (lst->next)
@@ -70,4 +70,14 @@ int	check_sorted(t_list *lst)
 		lst = lst->next;
 	}
 	return (1);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

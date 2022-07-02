@@ -57,7 +57,6 @@ t_list	*swap_sort_check_arry(t_list **stack, int *s, int size)
 		temp = temp->next;
 		i++;
 	}
-	check_dup(s, size);
 	s = sort(s, size);
 	return (put_index(stack, s, i));
 }

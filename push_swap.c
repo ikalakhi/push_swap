@@ -18,7 +18,7 @@ int	creat_stack(int ac, char **av, t_list **stack_a)
 	int		num;
 
 	i = 0;
-	while (++i < ac)
+	while (i++ < ac)
 	{
 		num = ft_atoi(av[i]);
 		new = ft_lstnew(num);
@@ -46,19 +46,18 @@ int	main(int ac, char **av)
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		*s;
-	int		i;
 	int		j;
 
 	s = NULL;
+	ac = ac - 1;
 	intialize(&stack_a, &stack_b);
+	check_numbers(av, ac);
 	creat_stack(ac, av, &stack_a);
 	j = check_sorted(stack_a);
-	i = check_numbers(av, ac);
-	ac = ac -1;
-	if (i == 0)
-		erreur();
-	stack_a = swap_sort_check_arry(&stack_a, s, ac);
 	if (ac > 1 && j == 0)
+	{
+		stack_a = swap_sort_check_arry(&stack_a, s, ac);
 		ac_size(&stack_a, &stack_b, ac);
+	}
 	return (0);
 }
